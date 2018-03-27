@@ -1,0 +1,12 @@
+{
+  "name": "picatic-components",
+  "version": "1.0.0",
+  "description": "Base components for HTML/AngularJS/React",
+  "author": "Picatic",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0"
+  }
+}

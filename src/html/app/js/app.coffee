@@ -48,9 +48,9 @@ angular.module(
   ])
 
   .controller('ComponentDocCtrl', ['$scope', '$state', '$templateCache', 'component', ($scope, $state, $templateCache, component) ->
-    $scope.markupUrl = "app/components/#{$state.current.name}/#{$state.current.name}.tmpl.html"
+    $scope.markupUrl = "components/#{$state.current.name}/#{$state.current.name}.tmpl.html"
     $scope.markup = $templateCache.get($scope.markupUrl)
-    $scope.css = $templateCache.get("app/components/#{$state.current.name}/#{$state.current.name}.less")
+    $scope.css = $templateCache.get("components/#{$state.current.name}/#{$state.current.name}.less")
     $scope.component = component
   ])
 
