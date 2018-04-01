@@ -26,7 +26,7 @@ module.exports =  (grunt) ->
       docs:
         options:
           module: 'Picatic.Components'
-        src: [ 'app/views/**.html', 'components/**/*.html', 'components/**/*.less' ]
+        src: [ 'app/views/**.html', 'components/**/*.html', 'components/**/*.less', 'style/**/*.html', 'style/**/*.less' ]
         dest: '../../docs/html/js/templates.js'
 
     copy:
@@ -64,22 +64,31 @@ module.exports =  (grunt) ->
         options:
           paths: ['less']
         files: [
-          '../../docs/html/css/components.css': 'components/**/*.less'
+          '../../docs/html/css/components.css': ['style/**/*.less', 'components/**/*.less']
         ]
       dist:
         options:
           paths: ['less']
-        files: [{
-          expand: true
-          cwd: 'components/'
-          src: ['**/*.less']
-          dest: '../../dist/html/components/'
-          ext: '.css'
-        }]
+        files: [
+          {
+            expand: true
+            cwd: 'style/'
+            src: ['**/*.less']
+            dest: '../../dist/html/style/'
+            ext: '.css'
+          }
+          {
+            expand: true
+            cwd: 'components/'
+            src: ['**/*.less']
+            dest: '../../dist/html/components/'
+            ext: '.css'
+          }
+        ]
 
     concat:
       dist:
-        src: ['../../dist/html/components/**/*.css', '!../../dist/html/components/**/*.min.css']
+        src: ['../../dist/html/style/**/*.css', '!../../dist/html/style/**/*.min.css', '../../dist/html/components/**/*.css', '!../../dist/html/components/**/*.min.css']
         dest: '../../dist/html/picatic-components.css'
 
     csso:
@@ -97,6 +106,13 @@ module.exports =  (grunt) ->
             cwd: '../../dist/html/components/'
             src: ['**/*.css']
             dest: '../../dist/html/components/'
+            ext: '.min.css'
+          }
+          {
+            expand: true
+            cwd: '../../dist/html/style/'
+            src: ['**/*.css']
+            dest: '../../dist/html/style/'
             ext: '.min.css'
           }
         ]

@@ -7,6 +7,7 @@ angular.module(
 
   .constant('StyleExamplesConstant', [
     {
+      type: 'style'
       name: 'Typography'
       state: 'typography'
       url: '/typography'
@@ -16,18 +17,21 @@ angular.module(
 
   .constant('ExamplesConstant', [
     {
-      name: 'Buttons'
-      state: 'buttons'
-      url: '/buttons'
-      templateUrl: 'app/views/buttons.html'
+      type: 'components'
+      name: 'Button'
+      state: 'button'
+      url: '/button'
+      templateUrl: 'app/views/button.html'
     }
     {
+      type: 'components'
       name: 'Card'
       state: 'card'
       url: '/card'
       templateUrl: 'app/views/card.html'
     }
     {
+      type: 'components'
       name: 'Ticket Widget'
       state: 'ticketWidget'
       url: '/ticket-widget'
@@ -68,7 +72,7 @@ angular.module(
   ])
 
   .controller('ComponentDocCtrl', ['$scope', '$state', '$templateCache', 'component', ($scope, $state, $templateCache, component) ->
-    $scope.markupUrl = "components/#{$state.current.name}/#{$state.current.name}.tmpl.html"
+    $scope.markupUrl = "#{component.type}/#{$state.current.name}/#{$state.current.name}.tmpl.html"
     $scope.markup = $templateCache.get($scope.markupUrl)
     $scope.css = $templateCache.get("components/#{$state.current.name}/#{$state.current.name}.less")
     $scope.component = component
