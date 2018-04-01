@@ -44,14 +44,28 @@ module.exports =  (grunt) ->
             src: ['app/less/highlightjs.css']
             dest: '../../docs/html/css/highlightjs.css'
           }
+          {
+            expand: true
+            cwd: 'app'
+            src: ['fonts/*']
+            dest: '../../docs/html/'
+            filter: 'isFile'
+          }
         ]
 
     less:
       docs:
         options:
           paths: ['less']
-        files:
+        files: [
           '../../docs/html/css/app.css': 'app/less/app.less'
+        ]
+      docComponents:
+        options:
+          paths: ['less']
+        files: [
+          '../../docs/html/css/components.css': 'components/**/*.less'
+        ]
       dist:
         options:
           paths: ['less']
@@ -92,8 +106,8 @@ module.exports =  (grunt) ->
 
     watch:
       less:
-        files: [ 'app/**' ]
-        tasks: [ 'coffee:docs', 'ngtemplates:docs', 'less:docs', 'copy:docs' ]
+        files: [ 'app/**', 'base/**', 'components/**' ]
+        tasks: [ 'coffee:docs', 'ngtemplates:docs', 'less:docs', 'copy:docs', 'less:docComponents' ]
 
   })
 

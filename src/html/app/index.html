@@ -24,8 +24,18 @@
     </header>
     <ul class="docs-menu">
       <li>
+        <button type="button" ng-click="showStyle = !showStyle">
+          <div>Style <span class="docs-flex-spacer"></span><span ng-class="{'toggled': showStyle}"><i class="material-icons">keyboard_arrow_down</i></span></div>
+        </button>
+        <ul ng-show="showStyle" class="animate-show">
+          <li ng-repeat="styleExample in styleExamples">
+            <a href="" ui-sref="{{styleExample.state}}" ng-class="{'active': isSelected()}" ng-bind="styleExample.name"></a>
+          </li>
+        </ul>
+      </li>
+      <li>
         <button type="button" ng-click="showExamples = !showExamples">
-          <div>Demos <span class="docs-flex-spacer"></span><span ng-class="{'toggled': showExamples}"><i class="material-icons">keyboard_arrow_down</i></span></div>
+          <div>Demo <span class="docs-flex-spacer"></span><span ng-class="{'toggled': showExamples}"><i class="material-icons">keyboard_arrow_down</i></span></div>
         </button>
         <ul ng-show="showExamples" class="animate-show">
           <li ng-repeat="example in examples">

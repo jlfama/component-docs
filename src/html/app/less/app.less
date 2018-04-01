@@ -1,4 +1,4 @@
-@import (reference) "variables.less";
+@import (reference) "../../base/variables.less";
 
 // Basic Elements
 html,
@@ -154,6 +154,11 @@ code {
 // Utilities
 .nowrap {
   white-space: nowrap;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 // Animations
@@ -508,4 +513,35 @@ hljs {
   box-sizing: border-box;
   padding: 16px;
   position: relative;
+}
+
+
+// Sections
+.typography-sample {
+  display: flex;
+  flex-direction: row;
+
+  dt {
+    float: left;
+  }
+  dd {
+    padding-bottom: 32px;
+    margin-left: 156px;
+
+    * {
+      margin: 0;
+    }
+  }
+  dl:last-child {
+    background-color: @black-87;
+    margin-left: 56px;
+    padding: 0 56px;
+
+    dt {
+      display: none;
+    }
+    dd {
+      margin-left: 0;
+    }
+  }
 }

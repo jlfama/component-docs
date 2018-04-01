@@ -5,12 +5,21 @@ angular.module(
   ])
 
 
-  .constant('ExamplesConstant', [
+  .constant('StyleExamplesConstant', [
     {
       name: 'Typography'
       state: 'typography'
       url: '/typography'
       templateUrl: 'app/views/typography.html'
+    }
+  ])
+
+  .constant('ExamplesConstant', [
+    {
+      name: 'Buttons'
+      state: 'buttons'
+      url: '/buttons'
+      templateUrl: 'app/views/buttons.html'
     }
     {
       name: 'Card'
@@ -26,9 +35,19 @@ angular.module(
     }
   ])
 
-  .config(['$stateProvider', '$urlRouterProvider', 'ExamplesConstant', ($stateProvider, $urlRouterProvider, ExamplesConstant) ->
+  .config(['$stateProvider', '$urlRouterProvider', 'StyleExamplesConstant', 'ExamplesConstant', ($stateProvider, $urlRouterProvider, StyleExamplesConstant, ExamplesConstant) ->
 
     $urlRouterProvider.otherwise('/')
+
+    StyleExamplesConstant.forEach( (ex) ->
+      $stateProvider.state(ex.state,
+        url: ex.url
+        templateUrl: ex.templateUrl
+        controller: 'ComponentDocCtrl'
+        resolve:
+          component: () -> return ex
+      )
+    )
 
     ExamplesConstant.forEach( (ex) ->
       $stateProvider.state(ex.state,
@@ -42,9 +61,10 @@ angular.module(
 
   ])
 
-  .run(['$rootScope', '$state', 'ExamplesConstant', ($rootScope, $state, ExamplesConstant) ->
+  .run(['$rootScope', '$state', 'StyleExamplesConstant', 'ExamplesConstant', ($rootScope, $state, StyleExamplesConstant, ExamplesConstant) ->
     $rootScope.$state = $state
     $rootScope.examples = ExamplesConstant
+    $rootScope.styleExamples = StyleExamplesConstant
   ])
 
   .controller('ComponentDocCtrl', ['$scope', '$state', '$templateCache', 'component', ($scope, $state, $templateCache, component) ->
@@ -143,18 +163,26 @@ angular.module(
       ctrl.tabs.push(attrs.dtHeading)
   ])
 
-  .directive('stateBreadcrumbs', [ '$state', 'ExamplesConstant', ($state, ExamplesConstant) ->
+  .directive('stateBreadcrumbs', [ '$state', 'StyleExamplesConstant', 'ExamplesConstant', ($state, StyleExamplesConstant, ExamplesConstant) ->
     restrict: 'A'
     scope: true
     template: '<h2 ng-bind-html="breadcrumb"></h2>'
     link: (scope, elem, attrs, ctrl) ->
 
       updateBreadcrumbs = () ->
+        section = 'Demo'
         ex = ExamplesConstant.find( (e) ->
           return e.state is $state.current.name
         )
+        if !ex
+          ex = StyleExamplesConstant.find( (e) ->
+            return e.state is $state.current.name
+          )
+          section = 'Style'
+        if !ex
+          return
         _breadcrumb = []
-        _breadcrumb.push('Demo')
+        _breadcrumb.push(section)
         _breadcrumb.push('<i class="material-icons">chevron_right</i>')
         _breadcrumb.push(ex.name)
         scope.breadcrumb = _breadcrumb.join(' ')
