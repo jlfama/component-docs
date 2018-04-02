@@ -122,7 +122,7 @@ module.exports =  (grunt) ->
 
     watch:
       less:
-        files: [ 'app/**', 'base/**', 'components/**' ]
+        files: [ 'app/**', 'base/**', 'style/**', 'components/**' ]
         tasks: [ 'coffee:docs', 'ngtemplates:docs', 'less:docs', 'copy:docs', 'less:docComponents' ]
 
   })
