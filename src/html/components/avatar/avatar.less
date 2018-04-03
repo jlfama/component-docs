@@ -1,0 +1,38 @@
+@import (reference) "../../style/variables.less";
+
+.pt-avatar {
+  border-radius: 50%;
+  box-sizing: content-box;
+  height: 40px;
+  width: 40px;
+
+  &.pt-avatar-xl {
+    height: 112px;
+    width: 112px;
+  }
+  &.pt-avatar-lg {
+    height: 80px;
+    width: 80px;
+  }
+  &.pt-avatar-sm {
+    height: 40px;
+    width: 40px;
+  }
+  &.pt-avatar-xs {
+    height: 24px;
+    width: 24px;
+  }
+  img {
+    border-radius: 50%;
+    height: auto;
+    width: 100%;
+  }
+}
+@supports(object-fit: cover) {
+  .pt-avatar img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+

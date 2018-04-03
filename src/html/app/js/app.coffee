@@ -25,6 +25,13 @@ angular.module(
     }
     {
       type: 'components'
+      name: 'Avatar'
+      state: 'avatar'
+      url: '/avatar'
+      templateUrl: 'app/views/avatar.html'
+    }
+    {
+      type: 'components'
       name: 'Card'
       state: 'card'
       url: '/card'

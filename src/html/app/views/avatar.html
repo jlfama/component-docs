@@ -1,0 +1,70 @@
+<section class="docs-content-section">
+  <h2>Square image ratio</h2>
+  <p>The class <code>pt-avatar</code> can be applied directly to the <code>&lt;img&gt;</code> tag.</p>
+  <demo-container>
+    <div class="demo-toolbar">
+      <h3>1:1 Image Ratio Usage</h3>
+      <button type="button" ng-click="showSource = !showSource"><i class="material-icons">code</i></button>
+    </div><!-- /.demo-toolbar -->
+
+    <demo-tabs ng-show="showSource">
+      <demo-tab dt-heading="HTML" dt-tab-active>
+        <hljs class="no-header" lang="html" code="markup" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="CSS">
+        <hljs class="no-header" lang="css" code="css" should-interpolate="false"></hljs>
+      </demo-tab>
+    </demo-tabs>
+
+    <div class="demo-content" ng-include="markupUrl"></div><!-- /.demo-content -->
+  </demo-container>
+</section><!-- /.docs-content-section -->
+
+<section class="docs-content-section">
+  <h2>Unknown image ratio</h2>
+  <p>If the image ratio is unknown, putting the class on a container element with the image inside will give the appropriate style in modern browsers, but with problems in &lt; IE 11.</p>
+
+  <demo-container>
+    <div class="demo-toolbar">
+      <h3>Other Image Ratio Usage</h3>
+      <button type="button" ng-click="showSource = !showSource"><i class="material-icons">code</i></button>
+    </div><!-- /.demo-toolbar -->
+
+    <demo-tabs ng-show="showSource">
+      <demo-tab dt-heading="HTML" dt-tab-active>
+        <hljs class="no-header" lang="html" should-interpolate="false">
+          <div class="pt-avatar pt-avatar-xl" style="display:block;margin-bottom:24px;">
+            <img src="https://s3.amazonaws.com/files.picatic.com/users/41382/rz2aNKUQ22mK9Lko38nc_n662021201_296840_4482.jpg" />
+          </div><!-- /.pt-avatar -->
+          <div class="pt-avatar pt-avatar-lg" style="display:block;margin-bottom:24px;">
+            <img src="https://s3.amazonaws.com/files.picatic.com/users/41382/rz2aNKUQ22mK9Lko38nc_n662021201_296840_4482.jpg" />
+          </div><!-- /.pt-avatar -->
+          <div class="pt-avatar" style="display:block;margin-bottom:24px;">
+            <img src="https://s3.amazonaws.com/files.picatic.com/users/41382/rz2aNKUQ22mK9Lko38nc_n662021201_296840_4482.jpg" />
+          </div><!-- /.pt-avatar -->
+          <div class="pt-avatar pt-avatar-xs">
+            <img src="https://s3.amazonaws.com/files.picatic.com/users/41382/rz2aNKUQ22mK9Lko38nc_n662021201_296840_4482.jpg" />
+          </div><!-- /.pt-avatar -->
+        </hljs>
+      </demo-tab>
+      <demo-tab dt-heading="CSS">
+        <hljs class="no-header" lang="css" code="css" should-interpolate="false"></hljs>
+      </demo-tab>
+    </demo-tabs>
+
+    <div class="demo-content">
+      <div class="pt-avatar pt-avatar-xl" style="display:block;margin-bottom:24px;">
+        <img src="https://s3.amazonaws.com/files.picatic.com/users/41382/rz2aNKUQ22mK9Lko38nc_n662021201_296840_4482.jpg" />
+      </div><!-- /.pt-avatar -->
+      <div class="pt-avatar pt-avatar-lg" style="display:block;margin-bottom:24px;">
+        <img src="https://s3.amazonaws.com/files.picatic.com/users/41382/rz2aNKUQ22mK9Lko38nc_n662021201_296840_4482.jpg" />
+      </div><!-- /.pt-avatar -->
+      <div class="pt-avatar" style="display:block;margin-bottom:24px;">
+        <img src="https://s3.amazonaws.com/files.picatic.com/users/41382/rz2aNKUQ22mK9Lko38nc_n662021201_296840_4482.jpg" />
+      </div><!-- /.pt-avatar -->
+      <div class="pt-avatar pt-avatar-xs">
+        <img src="https://s3.amazonaws.com/files.picatic.com/users/41382/rz2aNKUQ22mK9Lko38nc_n662021201_296840_4482.jpg" />
+      </div><!-- /.pt-avatar -->
+    </div><!-- /.demo-content -->
+  </demo-container>
+</section><!-- /.docs-content-section -->
