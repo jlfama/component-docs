@@ -32,6 +32,13 @@ angular.module(
     }
     {
       type: 'components'
+      name: 'Badge'
+      state: 'badge'
+      url: '/badge'
+      templateUrl: 'app/views/badge.html'
+    }
+    {
+      type: 'components'
       name: 'Card'
       state: 'card'
       url: '/card'
