@@ -2,7 +2,7 @@
 
 .pt-badge {
   background-color: #424242;
-  border-radius: 12px;
+  border-radius: @border-radius-sm;
   box-sizing: border-box;
   color: #fff;
   display: inline-block;
@@ -13,10 +13,16 @@
   min-width: 24px;
   padding: 0 20px;
 
-  &.pt-badge-cornered {
-    border-radius: @border-radius-sm;
+  &.pt-pill {
+    border-radius: 12px;
   }
-  &.pt-badge-red {
+  &.pt-badge-sm {
+    font-size: 11px;
+    height: 16px;
+    line-height: 18px;
+    padding: 0 12px;
+  }
+  &.pt-badge-rorange {
     background-color: @redOrange;
   }
   &.pt-badge-amaranth {
@@ -31,7 +37,7 @@
   &.pt-badge-shamrock {
     background-color: @shamrock;
   }
-  &.pt-badge-yellow {
+  &.pt-badge-selective {
     background-color: @selectiveYellow;
   }
 }
