@@ -12,46 +12,14 @@
 
     <demo-tabs ng-show="showSource">
       <demo-tab dt-heading="HTML" dt-tab-active>
-        <hljs class="no-header" lang="html" should-interpolate="false">
-          <div>
-            <button type="button" class="pt-button md-raised md-primary pt-heart-theme pt-button-lg pt-button-block">Large</button>
-            <a href="#" class="pt-button md-raised md-primary pt-heart-theme pt-button-block">Medium</a>
-            <a href="#" class="pt-button md-raised md-primary pt-heart-theme pt-button-sm pt-button-block">Small</a>
-          </div>
-          <div>
-            <a href="#" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-lg pt-button-block">Large</a>
-            <button type="button" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-block">Medium</button>
-            <a href="#" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-sm pt-button-block">Small</a>
-          </div>
-          <div>
-            <button type="button" class="pt-button md-raised md-primary pt-cerulean-theme pt-button-lg pt-button-block">Large</button>
-            <a href="#" class="pt-button md-raised md-primary pt-cerulean-theme pt-button-block">Medium</a>
-            <a href="#" class="pt-button md-raised md-primary pt-cerulean-theme pt-button-sm pt-button-block">Small</a>
-          </div>
-        </hljs>
+        <hljs class="no-header" lang="html" code="markup" should-interpolate="false"></hljs>
       </demo-tab>
       <demo-tab dt-heading="CSS">
         <hljs class="no-header" lang="css" code="css" should-interpolate="false"></hljs>
       </demo-tab>
     </demo-tabs>
 
-    <div class="demo-content demo-content-flex-col">
-      <div>
-        <button type="button" class="pt-button md-raised md-primary pt-heart-theme pt-button-lg pt-button-block">Large</button>
-        <a href="#" class="pt-button md-raised md-primary pt-heart-theme pt-button-block">Medium</a>
-        <a href="#" class="pt-button md-raised md-primary pt-heart-theme pt-button-sm pt-button-block">Small</a>
-      </div>
-      <div>
-        <button type="button" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-lg pt-button-block">Large</button>
-        <a href="#" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-block">Medium</a>
-        <a href="#" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-sm pt-button-block">Small</a>
-      </div>
-      <div>
-        <button type="button" class="pt-button md-raised md-primary pt-cerulean-theme pt-button-lg pt-button-block">Large</button>
-        <a href="#" class="pt-button md-raised md-primary pt-cerulean-theme pt-button-block">Medium</a>
-        <a href="#" class="pt-button md-raised md-primary pt-cerulean-theme pt-button-sm pt-button-block">Small</a>
-      </div>
-    </div><!-- /.demo-content -->
+    <div class="demo-content demo-content-flex-col" ng-include="markupUrl"></div><!-- /.demo-content -->
   </demo-container>
 </section><!-- /.docs-content-section -->
 
@@ -66,46 +34,14 @@
 
     <demo-tabs ng-show="showSource">
       <demo-tab dt-heading="HTML" dt-tab-active>
-        <hljs class="no-header" lang="html" should-interpolate="false">
-          <div>
-            <button type="button" class="pt-button md-raised pt-heart-theme pt-button-lg pt-button-block">Large</button>
-            <a href="#" class="pt-button md-raised pt-heart-theme pt-button-block">Medium</a>
-            <a href="#" class="pt-button md-raised pt-heart-theme pt-button-sm pt-button-block">Small</a>
-          </div>
-          <div>
-            <a href="#" class="pt-button md-raised pt-shamrock-theme pt-button-lg pt-button-block">Large</a>
-            <button type="button" class="pt-button md-raised pt-shamrock-theme pt-button-block">Medium</button>
-            <a href="#" class="pt-button md-raised pt-shamrock-theme pt-button-sm pt-button-block">Small</a>
-          </div>
-          <div>
-            <button type="button" class="pt-button md-raised pt-cerulean-theme pt-button-lg pt-button-block">Large</button>
-            <a href="#" class="pt-button md-raised pt-cerulean-theme pt-button-block">Medium</a>
-            <a href="#" class="pt-button md-raised pt-cerulean-theme pt-button-sm pt-button-block">Small</a>
-          </div>
-        </hljs>
+        <hljs class="no-header" lang="html" code="markup2" should-interpolate="false"></hljs>
       </demo-tab>
       <demo-tab dt-heading="CSS">
         <hljs class="no-header" lang="css" code="css" should-interpolate="false"></hljs>
       </demo-tab>
     </demo-tabs>
 
-    <div class="demo-content demo-content-flex-col">
-      <div>
-        <button type="button" class="pt-button md-raised pt-heart-theme pt-button-lg pt-button-block">Large</button>
-        <a href="#" class="pt-button md-raised pt-heart-theme pt-button-block">Medium</a>
-        <a href="#" class="pt-button md-raised pt-heart-theme pt-button-sm pt-button-block">Small</a>
-      </div>
-      <div>
-        <a href="#" class="pt-button md-raised pt-shamrock-theme pt-button-lg pt-button-block">Large</a>
-        <button type="button" class="pt-button md-raised pt-shamrock-theme pt-button-block">Medium</button>
-        <a href="#" class="pt-button md-raised pt-shamrock-theme pt-button-sm pt-button-block">Small</a>
-      </div>
-      <div>
-        <button type="button" class="pt-button md-raised pt-cerulean-theme pt-button-lg pt-button-block">Large</button>
-        <a href="#" class="pt-button md-raised pt-cerulean-theme pt-button-block">Medium</a>
-        <a href="#" class="pt-button md-raised pt-cerulean-theme pt-button-sm pt-button-block">Small</a>
-      </div>
-    </div><!-- /.demo-content -->
+    <div class="demo-content demo-content-flex-col" ng-include="markupUrl2"></div><!-- /.demo-content -->
   </demo-container>
 </section><!-- /.docs-content-section -->
 
@@ -120,33 +56,13 @@
 
     <demo-tabs ng-show="showSource">
       <demo-tab dt-heading="HTML" dt-tab-active>
-        <hljs class="no-header" lang="html" should-interpolate="false">
-          <div>
-            <button type="button" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-lg pt-button-badge pt-button-block">Large <span class="pt-badge pt-pill">3</span></button>
-          </div>
-          <div>
-            <button type="button" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-badge pt-button-block">Medium <span class="pt-badge pt-pill">3</span></button>
-          </div>
-          <div>
-            <button type="button" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-sm pt-button-badge pt-button-block">Small <span class="pt-badge pt-pill">3</span></button>
-          </div>
-        </hljs>
+        <hljs class="no-header" lang="html" code="markup3" should-interpolate="false"></hljs>
       </demo-tab>
       <demo-tab dt-heading="CSS">
         <hljs class="no-header" lang="css" code="css" should-interpolate="false"></hljs>
       </demo-tab>
     </demo-tabs>
 
-    <div class="demo-content demo-content-flex-col">
-      <div>
-        <button type="button" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-lg pt-button-badge pt-button-block">Large <span class="pt-badge pt-pill">3</span></button>
-      </div>
-      <div>
-        <button type="button" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-badge pt-button-block">Medium <span class="pt-badge pt-pill">3</span></button>
-      </div>
-      <div>
-        <button type="button" class="pt-button md-raised md-primary pt-shamrock-theme pt-button-sm pt-button-badge pt-button-block">Small <span class="pt-badge pt-pill">3</span></button>
-      </div>
-    </div><!-- /.demo-content -->
+    <div class="demo-content demo-content-flex-col" ng-include="markupUrl3"></div><!-- /.demo-content -->
   </demo-container>
 </section><!-- /.docs-content-section -->
