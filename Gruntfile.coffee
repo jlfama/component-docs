@@ -2,6 +2,7 @@ module.exports =  (grunt) ->
   'use strict'
 
   externalFile = require('./src/html/Gruntfile.coffee')
+  externalFile = require('./src/angular/Gruntfile.coffee')
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json')
@@ -43,4 +44,5 @@ module.exports =  (grunt) ->
   grunt.registerTask('dist', () ->
     grunt.task.run(['clean'])
     grunt.task.run(['builddist:src/html'])
+    grunt.task.run(['builddist:src/angular'])
   )

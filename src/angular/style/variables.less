@@ -1,0 +1,157 @@
+//
+// Variables
+// --------------------------------------------------
+
+@grid-block:            8px;
+
+//== Colors
+  @grey:                  #9e9e9e;
+  @grey-light:            #eee;
+  @grey-lightest:         #f7f7f7;
+  @white-12:              rgba(255,255,255,0.12);
+  @white-30:              rgba(255,255,255,0.30);
+  @white-50:              rgba(255,255,255,0.50);
+  @white-70:              rgba(255,255,255,0.70);
+  @white-100:             #fff;
+  @black-5:               rgba(0,0,0,0.05); // solid = #f2f2f2
+  @black-12:              rgba(0,0,0,0.12); // solid = #e0e0e0
+  @black-26:              rgba(0,0,0,0.26); // solid = #bcbcbc
+  @black-38:              rgba(0,0,0,0.38); // solid = #9d9d9d
+  @black-54:              rgba(0,0,0,0.54); // solid = #757575
+  @black-87:              rgba(0,0,0,0.87); // solid = #212121
+
+// Accent colors
+  @blackPearl:            #070826;
+  @blackPearl-54:         rgba(7, 8, 38, 0.54);
+
+  @torchRed:              #ff1a53;
+
+  @redOrange:             rgb(255,70,50); // #ff4632
+  @redOrange-400:         #f95b53;
+  @redOrange-600:         #f13b32;
+  @redOrange-700:         #e1332d;
+
+  @amaranth:              rgb(236,64,103); // #ec4067
+  @amaranth-400:          #ef6182;
+  @amaranth-700:          #e31c58;
+
+  @seance:                rgb(156,39,176); // #9c27b0
+  @seance-400:            #ab47bc;
+  @seance-700:            #7b1fa2;
+
+  @purpleHeart:           rgb(103,58,183); // #673ab7
+  @purpleHeart-400:       #7e57c2;
+  @purpleHeart-700:       #512da8;
+  @purpleHeart-12:        rgba(103,58,183,.12);
+  @purpleHeart-26:        rgba(103,58,183,.26);
+
+  @ceruleanBlue:          rgb(63,81,181); // #3f51b5
+  @ceruleanBlue-400:      #5c6bc0;
+  @ceruleanBlue-700:      #303f9f;
+  @ceruleanBlue-12:       rgba(63,81,181,.12);
+  @ceruleanBlue-26:       rgba(63,81,181,.26);
+
+  @dodgerBlue:            rgb(33,150,243); // #2196f3
+  @dodgerBlue-87:         rgba(33,150,243,.87); // #2196f3
+  @dodgerBlue-400:        #42a5f5;
+  @dodgerBlue-700:        #1976d2;
+
+  @skyBlue:               rgb(14,220,250); // #0edcfa
+  @skyBlue-400:           #36e2fb;
+  @skyBlue-700:           #04bed7;
+
+  @shamrock:              rgb(52,203,123); // #34cb7b
+  @shamrock-400:          #56d292;
+  @shamrock-700:          #26a664;
+  @shamrock-12:           rgba(52,203,123,.12);
+  @shamrock-26:           rgba(52,203,123,.26);
+
+  @malachite:             rgb(12,196,27); // #0cc41b
+  @malachite-400:         #34ce41;
+  @malachite-700:         #099314;
+
+  @pear:                  rgb(205,220,57); // #cddc39
+  @pear-400:              #d4e157;
+  @pear-700:              #afb42b;
+
+  @gorse:                 rgb(255,235,59); // #ffeb3b
+  @gorse-400:             #ffee58;
+  @gorse-700:             #fbc02d;
+
+  @selectiveYellow:       rgb(255,183,12); // #ffb70c
+  @selectiveYellow-400:   #ffc02e;
+  @selectiveYellow-700:   #ff9705;
+
+  @pizazz:                rgb(255,149,5); // #ff9505
+  @pizazz-400:            #ffa629;
+  @pizazz-700:            #fa7900;
+
+  @flamingo:              rgb(255,87,34); // #ff5722
+  @flamingo-400:          #ff7043;
+  @flamingo-700:          #e64a19;
+
+
+//** Standard box shadow
+  @shadow:                0 2px 5px @black-26;
+  @alt-shadow:            0 2px 4px @black-12;
+  @light-shadow:          0 2px 5px @black-5;
+  @card-shadow:           0 2px 4px 0 @black-5, 0 2px 16px 0 @black-5;
+  @shadow-button:         0 0 2px 0 @black-12, 0 2px 5px 0 @black-12;
+  @shadow-button-active:  0 0 2px 0 @black-12, 0 4px 8px 0 @black-26;
+  @shadow-button-purpleHeart:         0 0 2px 0 @purpleHeart-12, 0 2px 5px 0 @purpleHeart-26;
+  @shadow-button-purpleHeart-active:  0 0 2px 0 @purpleHeart-26, 0 4px 8px 0 @black-26;
+  @shadow-button-shamrock:            0 0 3px 0 @shamrock-12, 0 2px 5px 0 @shamrock-26;
+  @shadow-button-shamrock-active:     0 0 2px 0 @shamrock-26, 0 4px 8px 0 @black-26;
+  @shadow-button-ceruleanBlue:        0 0 2px 0 @ceruleanBlue-12, 0 2px 5px 0 @ceruleanBlue-26;
+  @shadow-button-ceruleanBlue-active: 0 0 2px 0 @ceruleanBlue-26, 0 4px 8px 0 @black-26;
+
+//== Typography
+  @font-family-base:      'Avenir Next W01', 'Nunito Sans', sans-serif;
+  @font-size-base:        16px;
+  @font-size-display-5:   (@font-size-base * 6.5); // ~104px
+  @font-size-display-4:   (@font-size-base * 4.5); // ~72px
+  @font-size-display-3:   (@font-size-base * 3.5); // ~56px
+  @font-size-display-2:   ceil(@font-size-base * 2.8); // ~45px
+  @font-size-display-1:   ceil(@font-size-base * 2.1); // ~34px
+  @font-size-headline:    (@font-size-base + 8); // ~24px
+  @font-size-title:       (@font-size-base + 4); // ~20px
+  @font-size-subhead:     (@font-size-base + 2); // ~18px
+  @font-size-body-1:      (@font-size-base - 2); // ~14px
+  @font-size-caption:     (@font-size-base - 4); // ~12px
+
+//== Borders
+  @border-radius-base:    4px;
+  @border-radius-sm:      2px;
+
+//== Media queries breakpoints
+  // Extra small screen / phone
+  @screen-xs:             480px;
+  @screen-phone:          @screen-xs;
+
+  // Small screen / tablet
+  @screen-sm:             768px;
+  @screen-tablet:         @screen-sm;
+
+  // Medium screen / desktop
+  @screen-md:             992px;
+  @screen-desktop:        @screen-md;
+
+  // Large screen / wide desktop
+  @screen-lg:             1200px;
+  @screen-lg-desktop:     @screen-lg;
+
+  // So media queries don't overlap when required, provide a maximum
+  @screen-xs-max:              (@screen-sm - 1);
+  @screen-sm-max:              (@screen-md - 1);
+  @screen-md-max:              (@screen-lg - 1);
+
+
+//== Bezier Curves
+  // Based on Material Design easing curves
+  // When something exists on screen already and moves to another position on screen, 40% out of first frame and 80% into second frame:
+  @curveMove:                   cubic-bezier(0.4, 0, 0.2, 1);
+  // When something comes from offscreen it has 0% out of the first frame and 80% in on the second frame:
+  @curveEnter:                  cubic-bezier(0, 0, 0.2, 1);
+  // When something leaves the screen it has 40% out of the first frame and 0% in on the second frame:
+  @curveExit:                   cubic-bezier(0.4, 0, 1, 1);
+

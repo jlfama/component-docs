@@ -1,0 +1,68 @@
+<h1>Buttons</h1>
+<p>Button styling can be applied to either <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> elements.</p>
+<p>Button can be made full-width by adding the `pt-button-block` class.</p>
+<section class="docs-content-section">
+  <h2>Primary Button</h2>
+  <p>These buttons should be the primary action on any screen. If multiple buttons are used, pair with multiple secondary buttons.</p>
+  <demo-container>
+    <div class="demo-toolbar">
+      <h3>Basic Usage</h3>
+      <button type="button" ng-click="showSource = !showSource"><i class="material-icons">code</i></button>
+    </div><!-- /.demo-toolbar -->
+
+    <demo-tabs ng-show="showSource">
+      <demo-tab dt-heading="HTML" dt-tab-active>
+        <hljs class="no-header" lang="html" code="markup" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="CSS">
+        <hljs class="no-header" lang="css" code="css" should-interpolate="false"></hljs>
+      </demo-tab>
+    </demo-tabs>
+
+    <div class="demo-content demo-content-flex-col" ng-include="markupUrl"></div><!-- /.demo-content -->
+  </demo-container>
+</section><!-- /.docs-content-section -->
+
+<section class="docs-content-section">
+  <h2>Secondary Button</h2>
+  <p>These buttons should be the secondary actions on any screen. Pair the color of secondary buttons with the primary button used.</p>
+  <demo-container>
+    <div class="demo-toolbar">
+      <h3>Basic Usage</h3>
+      <button type="button" ng-click="showSource = !showSource"><i class="material-icons">code</i></button>
+    </div><!-- /.demo-toolbar -->
+
+    <demo-tabs ng-show="showSource">
+      <demo-tab dt-heading="HTML" dt-tab-active>
+        <hljs class="no-header" lang="html" code="markup2" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="CSS">
+        <hljs class="no-header" lang="css" code="css" should-interpolate="false"></hljs>
+      </demo-tab>
+    </demo-tabs>
+
+    <div class="demo-content demo-content-flex-col" ng-include="markupUrl2"></div><!-- /.demo-content -->
+  </demo-container>
+</section><!-- /.docs-content-section -->
+
+<section class="docs-content-section">
+  <h2>Button with badge</h2>
+  <p>For use specifically for checkout. This only applies to primary button types.</p>
+  <demo-container>
+    <div class="demo-toolbar">
+      <h3>Basic Usage</h3>
+      <button type="button" ng-click="showSource = !showSource"><i class="material-icons">code</i></button>
+    </div><!-- /.demo-toolbar -->
+
+    <demo-tabs ng-show="showSource">
+      <demo-tab dt-heading="HTML" dt-tab-active>
+        <hljs class="no-header" lang="html" code="markup3" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="CSS">
+        <hljs class="no-header" lang="css" code="css" should-interpolate="false"></hljs>
+      </demo-tab>
+    </demo-tabs>
+
+    <div class="demo-content demo-content-flex-col" ng-include="markupUrl3"></div><!-- /.demo-content -->
+  </demo-container>
+</section><!-- /.docs-content-section -->
