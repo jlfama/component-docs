@@ -227,6 +227,13 @@ angular.module(
     $scope.markup3 = $templateCache.get($scope.markupUrl3)
     $scope.markup4 = $templateCache.get($scope.markupUrl4)
     $scope.css = $templateCache.get("components/#{$state.current.name}/#{$state.current.name}.less")
+    $scope.css2 = $templateCache.get("components/#{$state.current.name}/#{$state.current.name}-2.less")
+    $scope.css3 = $templateCache.get("components/#{$state.current.name}/#{$state.current.name}-3.less")
+    $scope.css4 = $templateCache.get("components/#{$state.current.name}/#{$state.current.name}-4.less")
+    $scope.js = $templateCache.get("components/#{$state.current.name}/#{$state.current.name}.coffee")
+    $scope.js2 = $templateCache.get("components/#{$state.current.name}/#{$state.current.name}-2.coffee")
+    $scope.js3 = $templateCache.get("components/#{$state.current.name}/#{$state.current.name}-3.coffee")
+    $scope.js4 = $templateCache.get("components/#{$state.current.name}/#{$state.current.name}-4.coffee")
     $scope.component = component
   ])
 

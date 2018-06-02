@@ -1,0 +1,14 @@
+<div ng-controller="Badge3DemoController as ctrl" layout="column" ng-cloak md-theme="purpleHeart">
+  <h2 class="md-title">Icon left and right (custom chip template)</h2>
+  <form name="fruitForm">
+    <md-chips class="pt-chips" ng-model="ctrl.fruitNames"  placeholder="Enter a fruit...">
+      <md-chip-template>
+        <md-icon aria-label="filter">filter_list</md-icon>
+        <span>{{$chip}}</span>
+      </md-chip-template>
+      <button md-chip-remove class="md-chip-remove">
+        <md-icon aria-label="remove">cancel</md-icon>
+      </button>
+    </md-chips>
+  </form>
+</div>

@@ -1,3 +1,8 @@
+/*
+ * Visual Studio 2015 dark style
+ * Author: Nicolas LLOBERA <nllobera@gmail.com>
+ */
+
 hljs {
   display: block;
   overflow-x: auto;
@@ -13,7 +18,6 @@ hljs {
   border-radius: 2px;
   margin: 0 0 1em;
 }
-
 hljs:before {
   content: attr(lang);
   display: block;
@@ -23,103 +27,109 @@ hljs:before {
   padding: 0 16px;
   border-radius: 2px 2px 0 0;
 }
-
 hljs.no-header:before {
   display: none;
 }
 
-.hljs-tag,
-.hljs-tag .hljs-title,
 .hljs-keyword,
 .hljs-literal,
-.hljs-strong,
-.hljs-change,
-.hljs-winutils,
-.hljs-flow,
-.nginx .hljs-title,
-.tex .hljs-special {
-  color: #E5C3A2;
-}
-
-hljs {
-  color: #ddd;
-}
-
-hljs .hljs-constant,
-.asciidoc .hljs-code,
-.markdown .hljs-code {
-  color: #80CBC4;
-}
-
-.hljs-code,
-.hljs-class .hljs-title,
-.hljs-header {
-  color: white;
-}
-
-.hljs-link_label,
-.hljs-attribute,
 .hljs-symbol,
-.hljs-symbol .hljs-string,
-.hljs-value,
-.hljs-params,
-.hljs-regexp {
-  color: #7DB9F4;
+.hljs-name {
+  color: #569CD6;
+}
+.hljs-link {
+  color: #569CD6;
+  text-decoration: underline;
 }
 
-.hljs-link_url,
-.hljs-tag .hljs-value,
-.hljs-string,
-.hljs-bullet,
-.hljs-subst,
-.hljs-title,
-.hljs-emphasis,
-.hljs-type,
-.hljs-preprocessor,
-.hljs-pragma,
-.ruby .hljs-class .hljs-parent,
 .hljs-built_in,
-.django .hljs-template_tag,
-.django .hljs-variable,
-.smalltalk .hljs-class,
-.hljs-javadoc,
-.django .hljs-filter .hljs-argument,
-.smalltalk .hljs-localvars,
-.smalltalk .hljs-array,
-.hljs-attr_selector,
-.hljs-pseudo,
-.hljs-addition,
-.hljs-stream,
-.hljs-envvar,
-.apache .hljs-tag,
-.apache .hljs-cbracket,
-.tex .hljs-command,
-.hljs-prompt,
-.hljs-name {
-  color: #9ccc65;
+.hljs-type {
+  color: #4EC9B0;
+}
+
+.hljs-number,
+.hljs-class {
+  color: #B8D7A3;
+}
+
+.hljs-string,
+.hljs-meta-string {
+  color: #D69D85;
+}
+
+.hljs-regexp,
+.hljs-template-tag {
+  color: #9A5334;
+}
+
+.hljs-subst,
+.hljs-function,
+.hljs-title,
+.hljs-params,
+.hljs-formula {
+  color: #DCDCDC;
 }
 
 .hljs-comment,
-.hljs-annotation,
-.smartquote,
-.hljs-blockquote,
-.hljs-horizontal_rule,
-.hljs-decorator,
-.hljs-pi,
-.hljs-doctype,
-.hljs-deletion,
-.hljs-shebang,
-.apache .hljs-sqbracket,
-.tex .hljs-formula {
-  color: #607D8B;
+.hljs-quote {
+  color: #57A64A;
+  font-style: italic;
 }
 
-.coffeescript .javascript,
-.javascript .xml,
-.tex .hljs-formula,
-.xml .javascript,
-.xml .vbscript,
-.xml .css,
-.xml .hljs-cdata {
-  opacity: 0.5;
+.hljs-doctag {
+  color: #608B4E;
+}
+
+.hljs-meta,
+.hljs-meta-keyword,
+.hljs-tag {
+  color: #9B9B9B;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #BD63C5;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-builtin-name {
+  color: #9CDCFE;
+}
+
+.hljs-section {
+  color: gold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/*.hljs-code {
+  font-family:'Monospace';
+}*/
+
+.hljs-bullet,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #D7BA7D;
+}
+
+.hljs-addition {
+  background-color: #144212;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #600;
+  display: inline-block;
+  width: 100%;
 }

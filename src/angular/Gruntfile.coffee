@@ -21,12 +21,18 @@ module.exports =  (grunt) ->
           bare: false
         files:
           '../../docs/angular/js/app.js': 'app/js/**/*.coffee'
+      docComponents:
+        options:
+          bare: false
+        files: [
+          '../../docs/angular/js/components.js': ['components/**/*.coffee']
+        ]
 
     ngtemplates:
       docs:
         options:
           module: 'Picatic.Components'
-        src: [ 'app/views/**.html', 'components/**/*.html', 'components/**/*.less', 'style/**/*.html', 'style/**/*.less' ]
+        src: [ 'app/views/**.html', 'components/**/*.html', 'components/**/*.less', 'components/**/*.coffee', 'style/**/*.html', 'style/**/*.less' ]
         dest: '../../docs/angular/js/templates.js'
 
     copy:
@@ -123,7 +129,7 @@ module.exports =  (grunt) ->
     watch:
       less:
         files: [ 'app/**', 'base/**', 'style/**', 'components/**' ]
-        tasks: [ 'coffee:docs', 'ngtemplates:docs', 'less:docs', 'copy:docs', 'less:docComponents' ]
+        tasks: [ 'coffee:docs', 'ngtemplates:docs', 'less:docs', 'copy:docs', 'coffee:docComponents', 'less:docComponents' ]
 
   })
 
