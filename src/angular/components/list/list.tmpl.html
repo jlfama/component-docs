@@ -1,0 +1,14 @@
+<md-list ng-controller="ListDemoController as ctrl" md-theme="purpleHeart">
+  <md-subheader class="md-no-sticky">Single-line</md-subheader>
+  <md-list-item ng-repeat="topping in ctrl.toppings">
+    <p ng-bind="topping.name"></p>
+  </md-list-item>
+
+  <md-divider></md-divider>
+
+  <md-subheader class="md-no-sticky">Single-line with switch</md-subheader>
+  <md-list-item ng-repeat="topping in ctrl.toppings">
+    <p ng-bind="topping.name"></p>
+    <md-switch class="md-secondary" ng-model="topping.wanted"></md-switch>
+  </md-list-item>
+</md-list>
