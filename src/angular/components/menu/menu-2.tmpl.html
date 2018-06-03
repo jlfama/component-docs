@@ -1,0 +1,89 @@
+<div ng-controller="MenuDemoController as ctrl" layout="row" md-theme="purpleHeart">
+  <div flex-gt-sm="33" flex>
+    <p>Option</p>
+    <md-menu>
+      <md-button class="md-primary md-raised pt-button" ng-click="$mdMenu.open($event)">
+        Open Menu
+      </md-button>
+      <md-menu-content width="4">
+        <md-menu-item>
+          <md-button>
+            Item
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            Item
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            Item
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div><!-- /flex -->
+  <div flex-gt-sm="33" flex>
+    <p>Option icon left</p>
+    <md-menu>
+      <md-button class="md-icon-button" ng-click="$mdMenu.open($event)">
+        <md-icon md-menu-origin aria-label="More">more_vert</md-icon>
+      </md-button>
+      <md-menu-content width="4">
+        <md-menu-item>
+          <md-button>
+            <md-icon md-menu-align-target>event_available</md-icon>
+            Item
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            <md-icon md-menu-align-target>event_available</md-icon>
+            Item
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            <md-icon md-menu-align-target>event_available</md-icon>
+            Item
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div><!-- /flex -->
+  <div flex-gt-sm="33" flex>
+    <p>Option icon right</p>
+    <md-menu md-position-mode="target-right target">
+      <md-button class="md-icon-button" ng-click="$mdMenu.open($event)">
+        <md-icon md-menu-origin aria-label="More">more_vert</md-icon>
+      </md-button>
+      <md-menu-content width="4">
+        <md-menu-item>
+          <md-button>
+            <div layout="row" flex>
+              <p flex>Item</p>
+              <md-icon md-menu-align-target>chevron_right</md-icon>
+            </div>
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            <div layout="row" flex>
+              <p flex>Item</p>
+              <md-icon>chevron_right</md-icon>
+            </div>
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            <div layout="row" flex>
+              <p flex>Item</p>
+              <md-icon>chevron_right</md-icon>
+            </div>
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </div><!-- /flex -->
+</div><!-- /MenuDemoController -->

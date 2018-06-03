@@ -1,0 +1,26 @@
+@import (reference) "../../style/variables.less";
+
+md-menu-item {
+  & >.md-button {
+    font-size: @font-size-body-1;
+
+    &.md-purpleHeart-theme:not([disabled]),
+    &.md-cerulean-theme:not([disabled]) {
+      &.md-focused,
+      &:hover {
+        background-color: @black-5;
+      }
+    }
+    span {
+      vertical-align: middle;
+    }
+    p {
+      font-size: @font-size-body-1;
+    }
+    div {
+      md-icon:last-child {
+        margin: auto 0 auto 8px;
+      }
+    }
+  }
+}
