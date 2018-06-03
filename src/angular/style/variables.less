@@ -40,6 +40,7 @@
   @seance-700:            #7b1fa2;
 
   @purpleHeart:           rgb(103,58,183); // #673ab7
+  @purpleHeart-300:       #9575cd;
   @purpleHeart-400:       #7e57c2;
   @purpleHeart-700:       #512da8;
   @purpleHeart-12:        rgba(103,58,183,.12);
@@ -48,6 +49,7 @@
   @ceruleanBlue:          rgb(63,81,181); // #3f51b5
   @ceruleanBlue-400:      #5c6bc0;
   @ceruleanBlue-700:      #303f9f;
+  @ceruleanBlue-a200:     #536dfe;
   @ceruleanBlue-12:       rgba(63,81,181,.12);
   @ceruleanBlue-26:       rgba(63,81,181,.26);
 
@@ -124,26 +126,8 @@
   @border-radius-sm:      2px;
 
 //== Media queries breakpoints
-  // Extra small screen / phone
-  @screen-xs:             480px;
-  @screen-phone:          @screen-xs;
-
-  // Small screen / tablet
-  @screen-sm:             768px;
-  @screen-tablet:         @screen-sm;
-
-  // Medium screen / desktop
-  @screen-md:             992px;
-  @screen-desktop:        @screen-md;
-
-  // Large screen / wide desktop
-  @screen-lg:             1200px;
-  @screen-lg-desktop:     @screen-lg;
-
-  // So media queries don't overlap when required, provide a maximum
-  @screen-xs-max:              (@screen-sm - 1);
-  @screen-sm-max:              (@screen-md - 1);
-  @screen-md-max:              (@screen-lg - 1);
+  @lt-md:                  ~'(max-width: 959px)';
+  @gt-sm:                  ~'(min-width: 960px)';
 
 
 //== Bezier Curves

@@ -1,0 +1,27 @@
+<div ng-controller="SnackbarDemoController as ctrl" ng-cloak layout="column" md-theme="purpleHeart">
+  <div flex-gt-sm="50" flex style="padding: 16px;" layout="row">
+    <div flex-gt-sm="50" flex>
+      <p>Snackbar</p>
+      <md-button class="md-primary md-raised pt-button" ng-click="ctrl.popToast1()">Show Simple</md-button>
+    </div><!-- /flex -->
+    <div flex-gt-sm="50" flex>
+      <p>Snackbar with action</p>
+      <md-button class="md-primary md-raised pt-button" ng-click="ctrl.popToast2()">Show With Action</md-button>
+      <md-button class="md-primary md-raised pt-button" ng-click="ctrl.popToast2('md-warn')">Show With Warn Action</md-button>
+      <md-button class="md-primary md-raised pt-button" ng-click="ctrl.popToast2('md-accent')">Show With Accent Action</md-button>
+    </div><!-- /flex -->
+  </div><!-- /flex -->
+
+  <md-divider></md-divider>
+
+  <div flex-gt-sm="50" flex style="padding: 16px;" layout="row">
+    <div flex-gt-sm="50" flex>
+      <p>Snackbar - multi-line</p>
+      <md-button class="md-primary md-raised pt-button" ng-click="ctrl.popToast3()">Show Simple</md-button>
+    </div><!-- /flex -->
+    <div flex-gt-sm="50" flex>
+      <p>Snackbar with action - multi-line</p>
+      <md-button class="md-primary md-raised pt-button" ng-click="ctrl.popToast4()">Show With Action</md-button>
+    </div><!-- /flex -->
+  </div><!-- /flex -->
+</div><!-- /SnackbarDemoController -->

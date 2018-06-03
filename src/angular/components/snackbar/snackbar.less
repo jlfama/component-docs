@@ -1,0 +1,55 @@
+@import (reference) "../../style/variables.less";
+@import (reference) "../../style/mixins.less";
+
+.pt-toast {
+  z-index: 105;
+  -webkit-font-smoothing: initial;
+
+  .md-dialog-is-showing & {
+    z-index: 100000000;
+  }
+  &.md-center {
+    left: 50%;
+    .translate3d(-50%, 0, 0);
+  }
+  .md-toast-content {
+    border-radius: @border-radius-base;
+    min-height: 32px;
+    padding: 8px 18px; // md-toast-text already has 6px l/r padding
+    .align-items(flex-start);
+
+    &::before {
+      min-height: 32px;
+    }
+    .md-toast-text {
+      padding: 8px 6px;
+    }
+    .md-button {
+      font-weight: 600;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+  @media @lt-md {
+    left: 16px;
+    right: 16px;
+    width: calc(~'100% - 32px');
+  }
+  @media @gt-sm {
+    max-width: 400px;
+  }
+  &.md-purpleHeart-theme {
+    .md-toast-content {
+      .md-button.md-action:not(.md-accent):not(.md-warn) {
+        color: @purpleHeart-300;
+      }
+    }
+  }
+  &.md-cerulean-theme {
+    .md-toast-content {
+      .md-button.md-action:not(.md-accent):not(.md-warn) {
+        color: @ceruleanBlue-a200;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<h1>Snackbars</h1>
+<p>Snackbar styling can be applied to <code>&lt;md-toast&gt;</code> elements by adding the <code>pt-snackbar</code> class.</p>
+
+<section class="docs-content-section">
+  <h2>Snackbar</h2>
+  <p>Snackbars contain a single line of text to provide feedback on an operation performed. They can include at most one action.</p>
+  <p>Snackbar should show up middle bottom of page.</p>
+  <p>Adding <code>md-warn</code> as the <code>highlightClass</code> will show the action button with red text. <code>md-accent</code> will use the theme&rsquo;s accent palette colour.</p>
+  <demo-container>
+    <div class="demo-toolbar">
+      <h3>Example Usage</h3>
+      <button type="button" ng-click="showSource = !showSource"><i class="material-icons">code</i></button>
+    </div><!-- /.demo-toolbar -->
+
+    <demo-tabs ng-show="showSource">
+      <demo-tab dt-heading="HTML" dt-tab-active>
+        <hljs class="no-header" lang="html" code="markup" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="LESS">
+        <hljs class="no-header" lang="less" code="css" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="CoffeeScript">
+        <hljs class="no-header" lang="coffeescript" code="js" should-interpolate="false"></hljs>
+      </demo-tab>
+    </demo-tabs>
+
+    <div class="demo-content" ng-include="markupUrl"></div><!-- /.demo-content -->
+  </demo-container>
+</section><!-- /.docs-content-section -->
