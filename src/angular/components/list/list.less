@@ -1,0 +1,105 @@
+@import (reference) "../../style/variables.less";
+
+.md-subheader.pt-list-subheader {
+  color: @black-87;
+  font-size: @font-size-base;
+  font-weight: 600;
+  line-height: 1.5;
+
+  & + md-list {
+    padding-bottom: 16px;
+    padding-top: 0;
+  }
+}
+md-list.pt-list {
+  border-top: 1px solid @black-12;
+  margin: 8px 0;
+  padding: 0;
+
+  md-list-item {
+    border-bottom: 1px solid @black-12;
+    min-height: 56px;
+    padding: 0;
+
+    .md-list-item-inner {
+      min-height: 56px;
+    }
+    &.md-2-line
+    &.md-3-line {
+      .md-list-item-inner {
+        min-height: 72px;
+      }
+      &::before,
+      & > .md-no-style::before {
+        min-height: 72px;
+      }
+    }
+    h3 {
+      font-weight: normal;
+      margin: 0;
+    }
+    &._md-button-wrap > div.md-button:first-child,
+    &.md-no-proxy,
+    .md-no-style {
+      padding: 0;
+    }
+    .md-icon-button {
+      color: @black-26;
+      margin: 0;
+
+      &:hover {
+        color: @black-54;
+      }
+      md-icon.md-default-theme, md-icon {
+        color: inherit;
+
+        &:hover {
+          color: inherit;
+        }
+      }
+    }
+  }
+  &.pt-list-dark {
+    border-top-color: @white-12;
+
+    md-list-item,
+    md-list-item.md-2-line,
+    md-list-item.md-3-line {
+      border-bottom-color: @white-12;
+
+      .md-list-item-text {
+        h3,
+        h4 {
+          color: #fff;
+        }
+        p {
+          color: @white-70;
+        }
+      }
+      .md-icon-button {
+        color: @white-30;
+
+        &:hover {
+          color: @white-50;
+        }
+      }
+    }
+  }
+  &.pt-list-no-border {
+    border-top: none;
+
+    md-list-item {
+      border-bottom: none;
+    }
+  }
+  &.pt-list-no-top-border {
+    border-top: none;
+  }
+  &.pt-list-no-bottom-border md-list-item:last-child {
+    border-bottom: none;
+  }
+  .md-secondary-container md-switch,
+  .md-list-item-inner .md-secondary-container md-switch {
+    margin-left: 8px;
+  }
+}

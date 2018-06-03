@@ -1,14 +1,26 @@
-<md-list ng-controller="ListDemoController as ctrl" md-theme="purpleHeart">
-  <md-subheader class="md-no-sticky">Single-line</md-subheader>
-  <md-list-item ng-repeat="topping in ctrl.toppings">
-    <p ng-bind="topping.name"></p>
-  </md-list-item>
+<div ng-controller="ListDemoController as ctrl" ng-cloak layout="row" md-theme="purpleHeart">
+  <div flex-gt-sm="50" flex>
+    <md-content style="padding: 16px;">
+      <md-subheader class="md-no-sticky pt-list-subheader">Single-line</md-subheader>
+      <md-list class="pt-list">
+        <md-list-item ng-repeat="topping in ctrl.toppings">
+          <p ng-bind="topping.name"></p>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div><!-- /flex -->
 
   <md-divider></md-divider>
 
-  <md-subheader class="md-no-sticky">Single-line with switch</md-subheader>
-  <md-list-item ng-repeat="topping in ctrl.toppings">
-    <p ng-bind="topping.name"></p>
-    <md-switch class="md-secondary" ng-model="topping.wanted"></md-switch>
-  </md-list-item>
-</md-list>
+  <div flex-gt-sm="50" flex>
+    <md-content style="padding: 16px;">
+      <md-subheader class="md-no-sticky pt-list-subheader">Single-line with switch</md-subheader>
+      <md-list class="pt-list">
+        <md-list-item ng-repeat="topping in ctrl.toppings">
+          <p ng-bind="topping.name"></p>
+          <md-switch class="md-secondary" ng-model="topping.wanted"></md-switch>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div><!-- /flex -->
+</div><!-- /ListDemoController -->

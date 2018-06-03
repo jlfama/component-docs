@@ -1,72 +1,116 @@
 <div ng-controller="List2DemoController as ctrl" ng-cloak layout="row" md-theme="purpleHeart">
   <div flex-gt-sm="50" flex>
-    <md-list>
-      <md-subheader class="md-no-sticky">Two-line with icons</md-subheader>
-      <md-list-item class="md-2-line" ng-repeat="person in ctrl.people">
-        <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
-          <h3 ng-bind="person.email"></h3>
-          <p ng-bind-template="Added on {{person.created}}"></p>
-        </div>
-        <md-button class="md-secondary md-icon-button">
-          <md-icon aria-label="Swap">swap_horiz</md-icon>
-        </md-button>
-        <md-button class="md-secondary md-icon-button">
-          <md-icon aria-label="Settings">settings</md-icon>
-        </md-button>
-        <md-button class="md-secondary md-icon-button">
-          <md-icon aria-label="More">more_vert</md-icon>
-        </md-button>
-      </md-list-item>
+    <md-content style="padding: 16px;">
+      <md-subheader class="md-no-sticky pt-list-subheader">Two-line with icons</md-subheader>
+      <md-list class="pt-list">
+        <md-list-item class="md-2-line" ng-repeat="person in ctrl.people">
+          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+            <h3 ng-bind="person.email"></h3>
+            <p ng-bind-template="Added on {{person.created}}"></p>
+          </div>
+          <md-button class="md-secondary md-icon-button">
+            <md-icon aria-label="Swap">swap_horiz</md-icon>
+          </md-button>
+          <md-button class="md-secondary md-icon-button">
+            <md-icon aria-label="Settings">settings</md-icon>
+          </md-button>
+          <md-menu class="md-secondary">
+            <md-button class="md-icon-button">
+              <md-icon aria-label="More">more_vert</md-icon>
+            </md-button>
+            <md-menu-content width="4">
+              <md-menu-item>
+                <md-button>
+                  Redial
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button>
+                  Check voicemail
+                </md-button>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item>
+                <md-button>
+                  Notifications
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </md-list-item>
+      </md-list>
 
-      <md-divider></md-divider>
-
-      <md-subheader class="md-no-sticky">Two-line with avatar</md-subheader>
-      <md-list-item class="md-2-line" ng-repeat="person in ctrl.people">
-        <img alt="{{person.name}}" ng-src="{{person.img}}" class="md-avatar" />
-        <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
-          <h3 ng-bind="person.name"></h3>
-          <p ng-bind-template="Added on {{person.created}}"></p>
-        </div>
-        <md-button class="md-secondary md-icon-button">
-          <md-icon aria-label="Swap">swap_horiz</md-icon>
-        </md-button>
-        <md-button class="md-secondary md-icon-button">
-          <md-icon aria-label="Settings">settings</md-icon>
-        </md-button>
-        <md-button class="md-secondary md-icon-button">
-          <md-icon aria-label="More">more_vert</md-icon>
-        </md-button>
-      </md-list-item>
-    </md-list>
+      <md-subheader class="md-no-sticky pt-list-subheader">Two-line with avatar</md-subheader>
+      <md-list class="pt-list">
+        <md-list-item class="md-2-line md-no-proxy" ng-repeat="person in ctrl.people">
+          <img alt="{{person.name}}" ng-src="{{person.img}}" class="md-avatar" />
+          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+            <h3 ng-bind="person.name"></h3>
+            <p ng-bind-template="Added on {{person.created}}"></p>
+          </div>
+          <md-button class="md-secondary md-icon-button">
+            <md-icon aria-label="Swap">swap_horiz</md-icon>
+          </md-button>
+          <md-button class="md-secondary md-icon-button">
+            <md-icon aria-label="Settings">settings</md-icon>
+          </md-button>
+          <md-menu class="md-secondary" md-position-mode="target-right target">
+            <md-button class="md-icon-button" ng-click="$mdMenu.open($event)">
+              <md-icon aria-label="More">more_vert</md-icon>
+            </md-button>
+            <md-menu-content width="4">
+              <md-menu-item>
+                <md-button>
+                  Redial
+                </md-button>
+              </md-menu-item>
+              <md-menu-item>
+                <md-button>
+                  Check voicemail
+                </md-button>
+              </md-menu-item>
+              <md-menu-divider></md-menu-divider>
+              <md-menu-item>
+                <md-button>
+                  Notifications
+                </md-button>
+              </md-menu-item>
+            </md-menu-content>
+          </md-menu>
+        </md-list-item>
+      </md-list>
+    </md-content>
   </div><!-- /flex -->
 
   <md-divider></md-divider>
 
   <div flex-gt-sm="50" flex>
-    <md-list>
-      <md-subheader class="md-no-sticky">Two-line with switch</md-subheader>
-      <md-list-item class="md-2-line" ng-repeat="person in ctrl.people">
-        <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
-          <h3 ng-bind="person.email"></h3>
-          <p ng-bind-template="Added on {{person.created}}"></p>
-        </div>
-        <md-switch class="md-secondary" ng-model="topping.wanted"></md-switch>
-      </md-list-item>
+    <md-content style="padding: 16px;">
+      <md-subheader class="md-no-sticky pt-list-subheader">Two-line with switch</md-subheader>
+      <md-list class="pt-list">
+        <md-list-item class="md-2-line" ng-repeat="person in ctrl.people">
+          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+            <h3 ng-bind="person.email"></h3>
+            <p ng-bind-template="Added on {{person.created}}"></p>
+          </div>
+          <md-switch class="md-secondary" ng-model="topping.wanted"></md-switch>
+        </md-list-item>
+      </md-list>
 
-      <md-divider></md-divider>
-
-      <md-subheader class="md-no-sticky">Two-line with switch and icons</md-subheader>
-      <md-list-item class="md-2-line" ng-repeat="person in ctrl.people">
-        <img alt="{{person.name}}" ng-src="{{person.img}}" class="md-avatar" />
-        <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
-          <h3 ng-bind="person.name"></h3>
-          <p ng-bind-template="Added on {{person.created}}"></p>
-        </div>
-        <md-button class="md-secondary md-icon-button">
-          <md-icon aria-label="Settings">settings</md-icon>
-        </md-button>
-        <md-switch class="md-secondary" ng-model="topping.wanted"></md-switch>
-      </md-list-item>
-    </md-list>
+      <md-subheader class="md-no-sticky pt-list-subheader">Two-line with switch and icons</md-subheader>
+      <md-list class="pt-list">
+        <md-list-item class="md-2-line md-no-proxy" ng-repeat="person in ctrl.people">
+          <img alt="{{person.name}}" ng-src="{{person.img}}" class="md-avatar" />
+          <div class="md-list-item-text" ng-class="{'md-offset': phone.options.offset }">
+            <h3 ng-bind="person.name"></h3>
+            <p ng-bind-template="Added on {{person.created}}"></p>
+          </div>
+          <md-button class="md-secondary md-icon-button">
+            <md-icon aria-label="Settings">settings</md-icon>
+          </md-button>
+          <md-switch class="md-secondary" ng-model="topping.wanted"></md-switch>
+        </md-list-item>
+      </md-list>
+    <md-content>
   </div><!-- /flex -->
 </div><!-- /List2DemoController -->
