@@ -178,8 +178,6 @@ code {
 // App
 .examples-body {
   box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
   margin: 0;
   max-height: 100%;
   max-width: 100%;
@@ -189,39 +187,44 @@ code {
 .site-sidenav {
   background: @blackPearl;
   box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
   min-width: 272px;
   max-width: 272px;
-  overflow: auto;
-  position: static;
   width: 272px;
-  z-index: 60;
-}
-.nav-header {
-  align-items: center;
-  border-bottom: 1px solid @white-30;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 0;
-  height: 64px;
-  padding: 0 16px;
-  text-align: center;
-  z-index: 2;
 
-  svg {
-    max-height: 100%;
-    width: 32px;
+  md-toolbar {
+    background-color: transparent !important;
+    border-bottom: 1px solid @white-30;
+    display: block;
+
+    svg {
+      height: 64px;
+      max-height: 100%;
+      width: 32px;
+
+      &:hover {
+        cursor: pointer;
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
+    h1 {
+      color: white;
+      font-size: 18px;
+      font-weight: 900;
+      margin: 18px 16px 14px;
+      text-transform: uppercase;
+
+      &:hover {
+        cursor: pointer;
+      }
+      &:focus {
+        outline: 0;
+      }
+    }
   }
-  h1 {
-    color: white;
-    font-size: 18px;
-    font-weight: 900;
-    margin: 18px 16px 14px;
-    text-align: center;
-    text-transform: uppercase;
+  md-content {
+    background: @blackPearl;
   }
 }
 .docs-menu {
@@ -230,6 +233,7 @@ code {
   padding: 0;
   max-width: 100%;
   overflow-x: hidden;
+  -webkit-font-smoothing: initial;
 
   li {
     list-style-position: inside;
@@ -269,7 +273,8 @@ code {
     width: 100%;
 
     &:hover,
-    &:focus {
+    &:focus,
+    &.active {
       background: @white-12;
     }
     &:focus {
@@ -324,22 +329,11 @@ code {
   min-width: 0;
 }
 .site-content-toolbar {
-  align-items: center;
-  background: @grey-light;
+  background: @grey-light !important;
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 0px 2px 2px rgba(0, 0, 0, 0.098), 0px 0px 5px 1px rgba(0, 0, 0, 0.084);
-  box-sizing: border-box;
-  color: #202020;
-  display: flex;
-  flex-direction: row;
-  height: 64px;
-  margin: 0;
-  min-height: 64px;
-  padding: 0 24px;
-  position: relative;
-  width: 100%;
-  z-index: 3;
 
   h2 {
+    color: #202020;
     font-size: 24px;
     font-weight: 400;
     line-height: 32px;
@@ -350,16 +344,14 @@ code {
       vertical-align: middle;
     }
   }
+  md-icon {
+    color: #202020 !important;
+  }
 }
 .site-content {
   background-color: @grey-lightest;
   box-sizing: border-box;
   color: rgba(0,0,0,0.87);
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0%;
   min-height: 0;
   overflow-x: hidden;
   overflow-y: auto;

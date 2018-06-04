@@ -6,48 +6,67 @@
   <title>Picatic Components HTML</title>
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.css">
   <link rel="stylesheet" type="text/css" href="css/highlightjs.css">
   <link rel="stylesheet" type="text/css" href="css/app.css">
   <link rel="stylesheet" type="text/css" href="css/components.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
-<body class="examples-body">
-  <div class="site-sidenav">
-    <header class="nav-header">
-      <svg class="picatic-logomark" xmlns="http://www.w3.org/2000/svg" width="108px" height="91px" viewBox="0 0 108 91" version="1.1">
-        <title>Picatic Logo</title>
-        <desc>Picatic Logomark</desc>
-        <path fill="#FFFFFF" d="M76.5,0.97 L108.06,0.97 L84.075,61.032 L52.515,61.032 L76.5,0.97 M36,0.97 L67.56,0.97 L31.56,90.97 L0,90.97 L36,0.97"></path>
-      </svg>
+<body class="examples-body" layout="row">
+  <md-sidenav
+    class="md-sidenav-left site-sidenav"
+    md-component-id="left"
+    md-is-locked-open="$mdMedia('gt-sm')"
+    md-whiteframe="4">
 
-      <h1 class="docs-logotype">Components</h1>
-    </header>
-    <ul class="docs-menu">
-      <li>
-        <button type="button" ng-click="showStyle = !showStyle">
-          <div>Style <span class="docs-flex-spacer"></span><span ng-class="{'toggled': showStyle}"><i class="material-icons">keyboard_arrow_down</i></span></div>
-        </button>
-        <ul ng-show="showStyle" class="animate-show">
-          <li ng-repeat="styleExample in styleExamples">
-            <a href="" ui-sref="{{styleExample.state}}" ng-class="{'active': isSelected()}" ng-bind="styleExample.name"></a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <button type="button" ng-click="showExamples = !showExamples">
-          <div>Demo <span class="docs-flex-spacer"></span><span ng-class="{'toggled': showExamples}"><i class="material-icons">keyboard_arrow_down</i></span></div>
-        </button>
-        <ul ng-show="showExamples" class="animate-show">
-          <li ng-repeat="example in examples">
-            <a href="" ui-sref="{{example.state}}" ng-class="{'active': isSelected()}" ng-bind="example.name"></a>
-          </li>
-        </ul>
-      </li>
-    </ul><!-- /.docs-menu -->
-  </div><!-- /.site-sidenav -->
+    <md-toolbar ng-cloak>
+      <div class="md-toolbar-tools">
+        <svg class="picatic-logomark" xmlns="http://www.w3.org/2000/svg" width="108px" height="91px" viewBox="0 0 108 91" version="1.1" ng-click="$state.go('index')">
+          <title>Picatic Logo</title>
+          <desc>Picatic Logomark</desc>
+          <path fill="#FFFFFF" d="M76.5,0.97 L108.06,0.97 L84.075,61.032 L52.515,61.032 L76.5,0.97 M36,0.97 L67.56,0.97 L31.56,90.97 L0,90.97 L36,0.97"></path>
+        </svg>
+        <h1 class="docs-logotype" flex ng-click="$state.go('index')">Components</h1>
+        <md-button class="md-icon-button" aria-label="Toggle Menu" ng-cloak hide-gt-sm ng-click="toggleMenu()">
+          <md-icon>close</md-icon>
+        </md-button>
+      </div><!-- /.md-toolbar-tools -->
+    </md-toolbar>
+    <md-content ng-cloak><!-- ng-controller="LeftCtrl"> -->
+      <ul class="docs-menu">
+        <li>
+          <button type="button" ng-click="showStyle = !showStyle">
+            <div>Style <span class="docs-flex-spacer"></span><span ng-class="{'toggled': showStyle}"><i class="material-icons">keyboard_arrow_down</i></span></div>
+          </button>
+          <ul ng-show="showStyle" class="animate-show" ng-click="closeMenu()">
+            <li ng-repeat="styleExample in styleExamples">
+              <a href="" ui-sref="{{styleExample.state}}" ng-class="{'active': isSelected(styleExample.state)}" ng-bind="styleExample.name"></a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <button type="button" ng-click="showExamples = !showExamples">
+            <div>Demo <span class="docs-flex-spacer"></span><span ng-class="{'toggled': showExamples}"><i class="material-icons">keyboard_arrow_down</i></span></div>
+          </button>
+          <ul ng-show="showExamples" class="animate-show" ng-click="closeMenu()">
+            <li ng-repeat="example in examples">
+              <a href="" ui-sref="{{example.state}}" ng-class="{'active': isSelected(example.state)}" ng-bind="example.name"></a>
+            </li>
+          </ul>
+        </li>
+      </ul><!-- /.docs-menu -->
+    </md-content>
+  </md-sidenav>
   <div class="site-main">
-    <div class="site-content-toolbar" state-breadcrumbs></div><!-- /.site-content-toolbar -->
-    <div class="site-content">
+    <md-toolbar class="site-content-toolbar">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Toggle Menu" ng-cloak hide-gt-sm ng-click="toggleMenu()">
+          <md-icon>menu</md-icon>
+        </md-button>
+        <div flex md-truncate state-breadcrumbs></div>
+      </div>
+    </md-toolbar><!-- /.site-content-toolbar -->
+    <div class="site-content" layout="column" flex>
       <div ui-view></div>
     </div><!-- /.site-content -->
   </div><!-- /.site-main -->
@@ -55,7 +74,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-sanitize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-messages.min.js"></script>
   <script src="https://unpkg.com/angular-ui-router@0.4.2/release/angular-ui-router.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
   <script type="text/javascript" src="js/highlight.pack.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript" src="js/templates.js"></script>

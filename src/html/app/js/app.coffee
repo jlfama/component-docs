@@ -1,7 +1,7 @@
 angular.module(
   'Picatic.Components',
   [
-    'ng', 'ngAnimate', 'ngSanitize', 'ui.router'
+    'ng', 'ngAnimate', 'ngSanitize', 'ui.router', 'ngMaterial'
   ])
 
 
@@ -84,7 +84,10 @@ angular.module(
   .config(['$stateProvider', '$urlRouterProvider', 'StyleExamplesConstant', 'ExamplesConstant', ($stateProvider, $urlRouterProvider, StyleExamplesConstant, ExamplesConstant) ->
 
     $urlRouterProvider.otherwise('/')
-
+    $stateProvider.state('index',
+      url: '/'
+      templateUrl: 'app/views/index.html'
+    )
     StyleExamplesConstant.forEach( (ex) ->
       $stateProvider.state(ex.state,
         url: ex.url
@@ -107,10 +110,18 @@ angular.module(
 
   ])
 
-  .run(['$rootScope', '$state', 'StyleExamplesConstant', 'ExamplesConstant', ($rootScope, $state, StyleExamplesConstant, ExamplesConstant) ->
+  .run(['$rootScope', '$mdSidenav', '$state', 'StyleExamplesConstant', 'ExamplesConstant', ($rootScope, $mdSidenav, $state, StyleExamplesConstant, ExamplesConstant) ->
     $rootScope.$state = $state
     $rootScope.examples = ExamplesConstant
     $rootScope.styleExamples = StyleExamplesConstant
+    $rootScope.toggleMenu = () ->
+      $mdSidenav('left').toggle()
+      return
+    $rootScope.closeMenu = () ->
+      $mdSidenav('left').close()
+      return
+    $rootScope.isSelected = (state) ->
+      return state is $state.current.name
   ])
 
   .controller('ComponentDocCtrl', ['$scope', '$state', '$templateCache', 'component', ($scope, $state, $templateCache, component) ->

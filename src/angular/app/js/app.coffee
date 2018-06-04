@@ -185,7 +185,10 @@ angular.module(
     $mdThemingProvider.theme('purpleHeart').primaryPalette('purpleHeart').accentPalette('shamrock')
 
     $urlRouterProvider.otherwise('/')
-
+    $stateProvider.state('index',
+      url: '/'
+      templateUrl: 'app/views/index.html'
+    )
     StyleExamplesConstant.forEach( (ex) ->
       $stateProvider.state(ex.state,
         url: ex.url
@@ -208,13 +211,21 @@ angular.module(
 
   ])
 
-  .run(['$rootScope', '$mdTheming', '$state', 'StyleExamplesConstant', 'ExamplesConstant', ($rootScope, $mdTheming, $state, StyleExamplesConstant, ExamplesConstant) ->
+  .run(['$rootScope', '$mdTheming', '$mdSidenav', '$state', 'StyleExamplesConstant', 'ExamplesConstant', ($rootScope, $mdTheming, $mdSidenav, $state, StyleExamplesConstant, ExamplesConstant) ->
     $mdTheming.generateTheme('default')
     $mdTheming.generateTheme('cerulean')
     $mdTheming.generateTheme('purpleHeart')
     $rootScope.$state = $state
     $rootScope.examples = ExamplesConstant
     $rootScope.styleExamples = StyleExamplesConstant
+    $rootScope.toggleMenu = () ->
+      $mdSidenav('left').toggle()
+      return
+    $rootScope.closeMenu = () ->
+      $mdSidenav('left').close()
+      return
+    $rootScope.isSelected = (state) ->
+      return state is $state.current.name
   ])
 
   .controller('ComponentDocCtrl', ['$scope', '$state', '$templateCache', 'component', ($scope, $state, $templateCache, component) ->
