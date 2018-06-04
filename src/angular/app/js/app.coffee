@@ -1,7 +1,7 @@
 angular.module(
   'Picatic.Components',
   [
-    'ng', 'ngAnimate', 'ngSanitize', 'ui.router', 'ngMaterial'
+    'ng', 'ngAnimate', 'ngSanitize', 'ui.router', 'ngMaterial', 'ptComponents'
   ])
 
 

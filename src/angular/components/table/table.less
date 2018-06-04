@@ -1,0 +1,17 @@
+@import (reference) "../../style/variables.less";
+@import (reference) "../../style/mixins.less";
+
+.pt-table-header{
+  border-bottom: 1px solid @black-12;
+  padding: 16px;
+
+  &-actions {
+    .flexbox();
+
+    .pt-button {
+      display: block;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+}

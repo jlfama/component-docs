@@ -27,6 +27,11 @@ module.exports =  (grunt) ->
         files: [
           '../../docs/angular/js/components.js': ['components/**/*.coffee']
         ]
+      js:
+        options:
+          bare: false
+        files:
+          '../../docs/angular/js/picatic.components.js': 'js/**/*.coffee'
 
     ngtemplates:
       docs:
@@ -136,8 +141,8 @@ module.exports =  (grunt) ->
 
     watch:
       less:
-        files: [ 'app/**', 'base/**', 'style/**', 'components/**' ]
-        tasks: [ 'coffee:docs', 'ngtemplates:docs', 'less:docs', 'copy:docs', 'coffee:docComponents', 'less:docComponents' ]
+        files: [ 'app/**', 'base/**', 'style/**', 'components/**', 'js/**' ]
+        tasks: [ 'coffee:docs', 'ngtemplates:docs', 'less:docs', 'copy:docs', 'coffee:docComponents', 'less:docComponents', 'coffee:js' ]
 
   })
 

@@ -1,0 +1,81 @@
+@import (reference) "../../style/variables.less";
+@import (reference) "../../style/mixins.less";
+
+pt-search {
+  display: inline-block;
+}
+.pt-input-group {
+  background-color: #fff;
+  border: 1px solid @black-12;
+  border-radius: @border-radius-base;
+  box-sizing: border-box;
+  color: @black-54;
+  padding-left: 8px;
+  // padding-right: 8px;
+  position: relative;
+  width: 100%;
+  .align-items(stretch);
+  .flexbox();
+  .flex-wrap(wrap);
+
+  &-prepend,
+  &-append {
+    .flexbox();
+
+    .md-icon-button {
+      height: 38px;
+      margin-left: 0;
+      margin-right: 0;
+      padding-bottom: 7px;
+      padding-top: 7px;
+    }
+  }
+  &-text {
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: center;
+    white-space: nowrap;
+    .align-items(center);
+    .flexbox();
+  }
+  * {
+    box-sizing: border-box;
+  }
+  input {
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
+    border-radius: @border-radius-base;
+    color: @black-54;
+    display: block;
+    font-family: @font-family-base;
+    font-size: @font-size-body-1;
+    line-height: 22px;
+    margin: 0;
+    overflow: visible;
+    padding: 8px 0;
+    position: relative;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    width: 1%;
+    .flex-grow(1);
+    .flex-shrink(1);
+
+    &:focus {
+      border-bottom: 1px solid @purpleHeart;
+      padding-bottom: 7px;
+      outline: 0;
+      z-index: 3;
+    }
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    @media @gt-xs {
+      min-width: 246px;
+    }
+  }
+}
