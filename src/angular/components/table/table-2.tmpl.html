@@ -1,0 +1,13 @@
+<div md-theme="purpleHeart" ng-controller="Table2DemoController as ctrl">
+
+  <div class="pt-whiteframe-1dp">
+    <table class="pt-table">
+      <thead>
+        <tr>
+          <th ng-repeat="row in ctrl.rows" ng-click="ctrl.sort(row.col)" ng-class="ctrl.tableHeaderClass(row.col)" ng-bind="row.name"></th>
+        </tr>
+      </thead>
+    </table><!-- /.pt-table -->
+  </div>
+
+</div>

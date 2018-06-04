@@ -3,6 +3,14 @@
   -webkit-transform: translate3d(@x, @y, @z);
           transform: translate3d(@x, @y, @z);
 }
+.translateY(@y) {
+  -webkit-transform: translateY(@y);
+          transform: translateY(@y);
+}
+.transition(@transition) {
+  -webkit-transition: @transition;
+          transition: @transition;
+}
 .align-items(@val) {
   -ms-flex-align: @val;
   -webkit-align-items: @val;

@@ -15,3 +15,96 @@
     }
   }
 }
+.pt-table {
+  border-collapse: separate;
+  color: @black-87;
+  overflow: hidden;
+  width: 100%;
+
+  thead {
+    display: none;
+  }
+}
+@media @gt-xs {
+  .pt-table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+
+    thead {
+      display: table-header-group;
+      vertical-align: middle;
+
+      th {
+        background-color: #fff;
+        border-bottom: 1px solid @black-12;
+        color: @black-87;
+        font-size: @font-size-body-1;
+        font-weight: 600;
+        height: 56px;
+        line-height: 24px;
+        padding: 0 24px;
+        text-align: left;
+        vertical-align: inherit;
+        white-space: nowrap;
+
+        &[ng-click] {
+          cursor: pointer;
+        }
+        &:focus {
+          outline: 0;
+        }
+        &.width-80 {
+          width: 80px;
+        }
+        &.align-right {
+          text-align: right;
+        }
+        &.align-center {
+          text-align: center;
+        }
+
+        &::after {
+          background-repeat: no-repeat;
+          background-position: right center;
+          color: @black-26;
+          content: 'keyboard_arrow_down';
+          direction: ltr;
+          display: inline-block;
+          font-family: 'Material Icons';
+          font-size: 24px;
+          font-style: normal;
+          font-weight: normal;
+          letter-spacing: normal;
+          line-height: 1;
+          margin-left: 4px;
+          opacity: 0;
+          text-transform: none;
+          vertical-align: top;
+          white-space: nowrap;
+          word-wrap: normal;
+          -webkit-font-feature-settings: 'liga';
+          -webkit-font-smoothing: antialiased;
+          .translateY(-25%);
+          .transition(all .3s ease-in-out);
+        }
+        &:hover::after {
+          opacity: .46; // roughly @black-12
+          .translateY(0%);
+        }
+        &.th-sort-active::after {
+          opacity: 1;
+          .translateY(0%);
+        }
+        &.th-sort-asc::after {
+          content: 'keyboard_arrow_up'
+        }
+        &.th-sort-desc::after {
+          content: 'keyboard_arrow_down'
+        }
+      }
+    }
+  }
+}
+

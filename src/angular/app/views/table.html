@@ -24,3 +24,27 @@
     <div class="demo-content" ng-include="markupUrl"></div><!-- /.demo-content -->
   </demo-container>
 </section><!-- /.docs-content-section -->
+
+<section class="docs-content-section">
+  <h2>Column header</h2>
+  <demo-container>
+    <div class="demo-toolbar">
+      <h3>Example Usage</h3>
+      <button type="button" ng-click="showSource = !showSource"><i class="material-icons">code</i></button>
+    </div><!-- /.demo-toolbar -->
+
+    <demo-tabs ng-show="showSource">
+      <demo-tab dt-heading="HTML" dt-tab-active>
+        <hljs class="no-header" lang="html" code="markup2" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="LESS">
+        <hljs class="no-header" lang="less" code="css" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="CoffeeScript">
+        <hljs class="no-header" lang="coffeescript" code="js2" should-interpolate="false"></hljs>
+      </demo-tab>
+    </demo-tabs>
+
+    <div class="demo-content" ng-include="markupUrl2"></div><!-- /.demo-content -->
+  </demo-container>
+</section><!-- /.docs-content-section -->

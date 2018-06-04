@@ -462,6 +462,9 @@ demo-container {
     transition: background-color .35s cubic-bezier(.35,0,.25,1);
     white-space: nowrap;
 
+    &:focus {
+      outline: 0;
+    }
     &.active {
       border-bottom: 2px solid @dodgerBlue;
       color: #fff;
