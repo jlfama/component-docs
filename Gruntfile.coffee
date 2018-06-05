@@ -20,7 +20,7 @@ module.exports =  (grunt) ->
         updateConfigs: []
         commit: true
         commitMessage: 'Release v%VERSION%'
-        commitFiles: ['package.json', 'bower.json'] # '-a' for all files
+        commitFiles: ['-a'] # 'package.json', 'bower.json' for tag release files only
         createTag: true
         tagName: 'v%VERSION%'
         tagMessage: 'Version %VERSION%'

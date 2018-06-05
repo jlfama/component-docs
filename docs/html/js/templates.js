@@ -200,6 +200,7 @@ angular.module('Picatic.Components').run(['$templateCache', function($templateCa
   $templateCache.put('app/views/index.html',
     "<!-- <h1>Picatic Component Documentation</h1> -->\n" +
     "<div style=\"max-width:864px;\">\n" +
+    "  <h1>Picatic HTML Components</h1>\n" +
     "  <h2>What are &ldquo;Picatic Components&rdquo;?</h2>\n" +
     "  <p>Picatic Components is a UI Component framework and reference implementation. The majority of it is based around AngularJS Material with altered styling. This project provides a set of reusable UI components based on Jellyfish Design Principles.</p>\n" +
     "\n" +
