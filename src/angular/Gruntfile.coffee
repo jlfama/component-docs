@@ -31,7 +31,7 @@ module.exports =  (grunt) ->
         options:
           bare: false
         files:
-          '../../docs/angular/js/picatic.components.js': 'js/**/*.coffee'
+          '../../docs/angular/js/picatic-components.js': 'js/**/*.coffee'
 
     ngtemplates:
       docs:
@@ -74,8 +74,8 @@ module.exports =  (grunt) ->
       dist:
         files: [
           {
-            src: ['../../docs/angular/js/picatic.components.js']
-            dest: '../../dist/angular/picatic.components.js'
+            src: ['../../docs/angular/js/picatic-components.js']
+            dest: '../../dist/angular/picatic-components.js'
           }
         ]
 
@@ -151,7 +151,7 @@ module.exports =  (grunt) ->
         mangle: false
       dist:
         files:
-          '../../dist/angular/picatic.components.min.js': ['../../dist/angular/picatic.components.js']
+          '../../dist/angular/picatic-components.min.js': ['../../dist/angular/picatic-components.js']
 
     watch:
       less:
