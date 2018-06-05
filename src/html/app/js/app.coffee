@@ -87,6 +87,14 @@ angular.module(
     $stateProvider.state('index',
       url: '/'
       templateUrl: 'app/views/index.html'
+      data:
+        breadcrumb: 'Introduction'
+    )
+    $stateProvider.state('getting-started',
+      url: '/getting-started'
+      templateUrl: 'app/views/getting-started.html'
+      data:
+        breadcrumb: 'Getting Started'
     )
     StyleExamplesConstant.forEach( (ex) ->
       $stateProvider.state(ex.state,
@@ -243,6 +251,7 @@ angular.module(
           )
           section = 'Style'
         if !ex
+          scope.breadcrumb = $state.current.data.breadcrumb
           return
         _breadcrumb = []
         _breadcrumb.push(section)
