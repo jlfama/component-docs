@@ -11,8 +11,30 @@
   -webkit-transition: @transition;
           transition: @transition;
 }
+.flexbox() {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
 .align-items(@val) {
   -ms-flex-align: @val;
   -webkit-align-items: @val;
   align-items: @val;
+}
+.justify-content(@val) {
+  -ms-flex-pack: @val;
+  -webkit-justify-content: @val;
+  justify-content: @val;
+}
+.flex-grow(@val) {
+  -webkit-flex-grow: @val;
+  flex-grow: @val;
+}
+.flex-shrink(@val) {
+  -webkit-flex-shrink: @val;
+  flex-shrink: @val;
+}
+.flex-wrap(@val) {
+  -ms-flex-wrap: @val;
+  flex-wrap: @val;
 }

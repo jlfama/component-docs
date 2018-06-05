@@ -27,6 +27,7 @@
 
 <section class="docs-content-section">
   <h2>Column header</h2>
+  <p>Column headers are hidden on xs viewports.</p>
   <demo-container>
     <div class="demo-toolbar">
       <h3>Example Usage</h3>
@@ -46,5 +47,57 @@
     </demo-tabs>
 
     <div class="demo-content" ng-include="markupUrl2"></div><!-- /.demo-content -->
+  </demo-container>
+</section><!-- /.docs-content-section -->
+
+<section class="docs-content-section">
+  <h2>Row</h2>
+  <h4>Notes:</h4>
+  <p>When using a menu in the last column, always ensure it is opened from the right so the placement isn't jarring when it appears.</p>
+  <p>For improved mobile usability, hidden classes should be used for data in some columns. ex: data formatting, caption, sub heading information, etc.</p>
+
+  <demo-container>
+    <div class="demo-toolbar">
+      <h3>Example Usage</h3>
+      <button type="button" ng-click="showSource = !showSource"><i class="material-icons">code</i></button>
+    </div><!-- /.demo-toolbar -->
+
+    <demo-tabs ng-show="showSource">
+      <demo-tab dt-heading="HTML" dt-tab-active>
+        <hljs class="no-header" lang="html" code="markup3" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="LESS">
+        <hljs class="no-header" lang="less" code="css" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="CoffeeScript">
+        <hljs class="no-header" lang="coffeescript" code="js3" should-interpolate="false"></hljs>
+      </demo-tab>
+    </demo-tabs>
+
+    <div class="demo-content" ng-include="markupUrl3"></div><!-- /.demo-content -->
+  </demo-container>
+</section><!-- /.docs-content-section -->
+
+<section class="docs-content-section">
+  <h2>Data table</h2>
+  <demo-container>
+    <div class="demo-toolbar">
+      <h3>Example Usage</h3>
+      <button type="button" ng-click="showSource = !showSource"><i class="material-icons">code</i></button>
+    </div><!-- /.demo-toolbar -->
+
+    <demo-tabs ng-show="showSource">
+      <demo-tab dt-heading="HTML" dt-tab-active>
+        <hljs class="no-header" lang="html" code="markup4" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="LESS">
+        <hljs class="no-header" lang="less" code="css" should-interpolate="false"></hljs>
+      </demo-tab>
+      <demo-tab dt-heading="CoffeeScript">
+        <hljs class="no-header" lang="coffeescript" code="js4" should-interpolate="false"></hljs>
+      </demo-tab>
+    </demo-tabs>
+
+    <div class="demo-content" ng-include="markupUrl4"></div><!-- /.demo-content -->
   </demo-container>
 </section><!-- /.docs-content-section -->

@@ -1,0 +1,84 @@
+<div md-theme="purpleHeart" ng-controller="Table3DemoController as ctrl">
+
+  <div class="pt-whiteframe-1dp">
+    <table class="pt-table">
+      <tbody>
+        <tr>
+          <td ng-repeat="row in ctrl.row1" ng-bind="row"></td>
+          <td class="pt-table-actions">
+            <div>
+              <md-switch aria-label="switch"></md-switch>
+              <md-menu md-position-mode="target-right target">
+                <md-button class="md-icon-button" ng-click="$mdMenu.open($event)">
+                  <md-icon md-menu-origin aria-label="More">more_vert</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                  <md-menu-item>
+                    <md-button>
+                      Item
+                    </md-button>
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button>
+                      Item
+                    </md-button>
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button>
+                      Item
+                    </md-button>
+                  </md-menu-item>
+                </md-menu-content>
+              </md-menu>
+            </div><!-- /.pt-table-actions -->
+          </td>
+        </tr>
+        <tr>
+          <td ng-repeat="row in ctrl.row2" ng-bind="row"></td>
+        </tr>
+        <tr>
+          <td class="pt-table-row-primary">
+            <div layout="row">
+              <div class="pt-avatar">
+                <img src="" ng-src="{{ctrl.row3.avatar}}" />
+              </div><!-- /.pt-avatar -->
+              <div class="pt-table-name" flex>
+                <h3 class="pt-table-headline" ng-bind="ctrl.row3.name"></h3>
+                <span class="pt-table-subhead" ng-bind="ctrl.row3.caption"></span>
+              </div>
+            </div><!-- /layout -->
+          </td>
+          <td ng-repeat="row in ctrl.row3.columns" ng-bind="row"></td>
+          <td class="pt-table-actions">
+            <div>
+              <md-switch aria-label="switch"></md-switch>
+              <md-menu md-position-mode="target-right target">
+                <md-button class="md-icon-button" ng-click="$mdMenu.open($event)">
+                  <md-icon md-menu-origin aria-label="More">more_vert</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                  <md-menu-item>
+                    <md-button>
+                      Item
+                    </md-button>
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button>
+                      Item
+                    </md-button>
+                  </md-menu-item>
+                  <md-menu-item>
+                    <md-button>
+                      Item
+                    </md-button>
+                  </md-menu-item>
+                </md-menu-content>
+              </md-menu>
+            </div><!-- /.pt-table-actions -->
+          </td>
+        </tr>
+      </tbody>
+    </table><!-- /.pt-table -->
+  </div>
+
+</div>
