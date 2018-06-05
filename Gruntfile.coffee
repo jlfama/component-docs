@@ -23,11 +23,14 @@ module.exports =  (grunt) ->
   grunt.registerTask('builddist', (dir) ->
     done = this.async()
     grunt.log.writeln('processing ' + dir)
-
+    if dir is 'src/html'
+      spawnArgs = ['coffee', 'ngtemplates', 'less', 'copy', 'concat', 'csso']
+    else
+      spawnArgs = ['coffee', 'ngtemplates', 'less', 'copy', 'concat', 'csso', 'uglify']
     grunt.util.spawn(
       {
         grunt: true
-        args: ['coffee', 'ngtemplates', 'less', 'copy', 'concat', 'csso']
+        args: spawnArgs
         opts:
           cwd: dir
       }

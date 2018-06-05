@@ -71,6 +71,13 @@ module.exports =  (grunt) ->
             filter: 'isFile'
           }
         ]
+      dist:
+        files: [
+          {
+            src: ['../../docs/angular/js/picatic.components.js']
+            dest: '../../dist/angular/picatic.components.js'
+          }
+        ]
 
     less:
       docs:
@@ -139,6 +146,13 @@ module.exports =  (grunt) ->
           restructure: true
           report: 'min'
 
+    uglify:
+      options:
+        mangle: false
+      dist:
+        files:
+          '../../dist/angular/picatic.components.min.js': ['../../dist/angular/picatic.components.js']
+
     watch:
       less:
         files: [ 'app/**', 'base/**', 'style/**', 'components/**', 'js/**' ]
@@ -152,9 +166,10 @@ module.exports =  (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-jshint')
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-csso')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-coffeelint')
   grunt.loadNpmTasks('grunt-angular-templates')
   grunt.loadNpmTasks('grunt-contrib-clean')
 
-  grunt.registerTask('default', ['coffee', 'ngtemplates', 'less', 'copy', 'concat', 'csso'])
+  grunt.registerTask('default', ['coffee', 'ngtemplates', 'less', 'copy', 'concat', 'csso', 'uglify'])
