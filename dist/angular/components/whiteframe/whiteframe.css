@@ -1,0 +1,8 @@
+.pt-whiteframe-1dp {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  overflow: auto;
+}
+.pt-whiteframe-2dp {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  overflow: auto;
+}

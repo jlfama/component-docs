@@ -14,9 +14,23 @@ module.exports =  (grunt) ->
       dist: [
         'dist'
       ]
+    bump:
+      options:
+        files: ['package.json', 'bower.json']
+        updateConfigs: []
+        commit: true
+        commitMessage: 'Release v%VERSION%'
+        commitFiles: ['package.json', 'bower.json'] # '-a' for all files
+        createTag: true
+        tagName: 'v%VERSION%'
+        tagMessage: 'Version %VERSION%'
+        push: true
+        pushTo: 'origin'
+        gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' # options to use with '$ git describe'
   })
 
   grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-bump')
 
   grunt.registerTask('dist', ['clean'])
 
@@ -48,4 +62,11 @@ module.exports =  (grunt) ->
     grunt.task.run(['clean'])
     grunt.task.run(['builddist:src/html'])
     grunt.task.run(['builddist:src/angular'])
+  )
+
+  grunt.registerTask('release', () ->
+    grunt.task.run(['clean'])
+    grunt.task.run(['builddist:src/html'])
+    grunt.task.run(['builddist:src/angular'])
+    grunt.task.run(['bump'])
   )

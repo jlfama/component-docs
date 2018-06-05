@@ -1,0 +1,18 @@
+md-menu-item > .md-button {
+  font-size: 14px;
+}
+md-menu-item > .md-button.md-purpleHeart-theme:not([disabled]).md-focused,
+md-menu-item > .md-button.md-cerulean-theme:not([disabled]).md-focused,
+md-menu-item > .md-button.md-purpleHeart-theme:not([disabled]):hover,
+md-menu-item > .md-button.md-cerulean-theme:not([disabled]):hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+md-menu-item > .md-button span {
+  vertical-align: middle;
+}
+md-menu-item > .md-button p {
+  font-size: 14px;
+}
+md-menu-item > .md-button div md-icon:last-child {
+  margin: auto 0 auto 8px;
+}
