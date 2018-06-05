@@ -1,0 +1,17 @@
+{
+  "name": "picatic-components",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jlfama/picatic-components",
+  "authors": [
+    "Picatic <api@picatic.com>"
+  ],
+  "description": "Picatic components for HTML/AngularJS/React",
+  "main": "dist",
+  "license": "None",
+  "ignore": [
+    "node_modules",
+    "docs",
+    "src"
+  ],
+  "dependencies": {}
+}

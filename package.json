@@ -1,9 +1,15 @@
 {
   "name": "picatic-components",
-  "version": "1.0.0",
-  "description": "Base components for HTML/AngularJS/React",
+  "version": "0.1.0",
+  "description": "Picatic components for HTML/AngularJS/React",
+  "main": "dist",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jlfama/picatic-components.git"
+  },
   "author": "Picatic",
-  "license": "ISC",
+  "license": "None",
+  "readmeFilename": "README.md",
   "devDependencies": {
     "grunt": "1.0.1",
     "grunt-cli": "^1.2.0",
