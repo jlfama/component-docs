@@ -2168,13 +2168,16 @@ angular.module('Picatic.Components').run(['$templateCache', function($templateCa
   $templateCache.put('components/whiteframe/whiteframe.less',
     "@import (reference) \"../../style/variables.less\";\n" +
     "\n" +
+    ".pt-whiteframe-1dp,\n" +
+    ".pt-whiteframe-2dp {\n" +
+    "  background-color: #fff;\n" +
+    "  overflow: auto;\n" +
+    "}\n" +
     ".pt-whiteframe-1dp {\n" +
     "  box-shadow: 0 2px 4px @black-12;\n" +
-    "  overflow: auto;\n" +
     "}\n" +
     ".pt-whiteframe-2dp {\n" +
     "  box-shadow: 0 2px 8px @black-12;\n" +
-    "  overflow: auto;\n" +
     "}\n"
   );
 
