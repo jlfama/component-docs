@@ -332,6 +332,34 @@ angular.module('Picatic.Components').run(['$templateCache', function($templateCa
   );
 
 
+  $templateCache.put('app/views/login.html',
+    "<div ng-controller=\"LoginCtrl\">\n" +
+    "  <div ng-show=\"error\" class=\"alert alert-danger\">\n" +
+    "    <h4 ng-bind=\"error.title\"><h4>\n" +
+    "    <p ng-bind=\"error.desc\"><p>\n" +
+    "  </div>\n" +
+    "  <form name=\"form\" ng-submit=\"login()\" role=\"form\">\n" +
+    "    <div class=\"form-group\">\n" +
+    "      <label for=\"email\">Email</label>\n" +
+    "      <i class=\"fa fa-key\"></i>\n" +
+    "      <input type=\"email\" name=\"email\" id=\"email\" class=\"form-control\" ng-model=\"email\" required />\n" +
+    "      <span ng-show=\"form.email.$dirty && form.email.$error.required\" class=\"help-block\">Username is required</span>\n" +
+    "    </div>\n" +
+    "    <div class=\"form-group\">\n" +
+    "      <label for=\"password\">Password</label>\n" +
+    "      <i class=\"fa fa-lock\"></i>\n" +
+    "      <input type=\"password\" name=\"password\" id=\"password\" class=\"form-control\" ng-model=\"password\" required />\n" +
+    "      <span ng-show=\"form.password.$dirty && form.password.$error.required\" class=\"help-block\">Password is required</span>\n" +
+    "    </div>\n" +
+    "    <div class=\"form-actions\">\n" +
+    "      <button type=\"submit\" ng-disabled=\"form.$invalid || dataLoading\" class=\"btn btn-danger\">Login</button>\n" +
+    "      <img ng-if=\"dataLoading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"/>\n" +
+    "    </div>\n" +
+    "  </form>\n" +
+    "</div>\n"
+  );
+
+
   $templateCache.put('app/views/menu.html',
     "<h1>Menus</h1>\n" +
     "<p>Menu is automatically applied to <code>&lt;md-menu&gt;</code> elements.</p>\n" +

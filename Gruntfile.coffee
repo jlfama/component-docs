@@ -27,10 +27,26 @@ module.exports =  (grunt) ->
         push: true
         pushTo: 'origin'
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' # options to use with '$ git describe'
+    connect:
+      ng:
+        options:
+          port: 3030
+          base: 'docs/angular/'
+          keepalive: true
+          open:
+            target: 'http://localhost:3030'
+      html:
+        options:
+          port: 3030
+          base: 'docs/html/'
+          keepalive: true
+          open:
+            target: 'http://localhost:3030'
   })
 
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-bump')
+  grunt.loadNpmTasks('grunt-contrib-connect')
 
   grunt.registerTask('dist', ['clean'])
 

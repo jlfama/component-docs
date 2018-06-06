@@ -1,7 +1,7 @@
 angular.module(
   'Picatic.Components',
   [
-    'ng', 'ngAnimate', 'ngSanitize', 'ui.router', 'ngMaterial', 'ptComponents'
+    'ng', 'ngAnimate', 'ngSanitize', 'ui.router', 'ngMaterial', 'ptComponents', 'ngCookies'
   ])
 
 
@@ -185,6 +185,12 @@ angular.module(
     $mdThemingProvider.theme('purpleHeart').primaryPalette('purpleHeart').accentPalette('shamrock')
 
     $urlRouterProvider.otherwise('/')
+    $stateProvider.state('login',
+      url: '/login'
+      templateUrl: 'app/views/login.html'
+      data:
+        breadcrumb: 'Login'
+    )
     $stateProvider.state('index',
       url: '/'
       templateUrl: 'app/views/index.html'
@@ -218,7 +224,21 @@ angular.module(
 
   ])
 
-  .run(['$rootScope', '$mdTheming', '$mdSidenav', '$state', 'StyleExamplesConstant', 'ExamplesConstant', ($rootScope, $mdTheming, $mdSidenav, $state, StyleExamplesConstant, ExamplesConstant) ->
+  .run(['$rootScope', '$cookies', '$mdTheming', '$mdSidenav', '$state', 'StyleExamplesConstant', 'ExamplesConstant', ($rootScope, $cookies, $mdTheming, $mdSidenav, $state, StyleExamplesConstant, ExamplesConstant) ->
+    # Check for logged in user
+    $rootScope.globals = $cookies.getObject('globals') || {}
+    $rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState, fromParams, options) ->
+      if toState.name isnt 'login' and !$rootScope.globals.currentUser
+        event.preventDefault()
+        $state.go('login')
+    )
+    $rootScope.$on('clearCredentials', () ->
+      $rootScope.globals = {}
+    )
+    $rootScope.$on('setCredentials', () ->
+      $rootScope.globals = $cookies.getObject('globals')
+    )
+
     $mdTheming.generateTheme('default')
     $mdTheming.generateTheme('cerulean')
     $mdTheming.generateTheme('purpleHeart')
@@ -233,6 +253,137 @@ angular.module(
       return
     $rootScope.isSelected = (state) ->
       return state is $state.current.name
+  ])
+
+  .factory('AuthService', ['$rootScope', '$http', '$q', '$cookies', 'Base64', ($rootScope, $http, $q, $cookies, Base64) ->
+    service =
+      login: (email, password) ->
+        deferred = $q.defer()
+        credentials =
+          email: email
+          password: password
+        $http.post('https://api.picatic.com/v1/auth/login', credentials).then( (response) ->
+          deferred.resolve(response)
+        , (error) ->
+          deferred.reject(error)
+        )
+        return deferred.promise
+
+      setCredentials: (email, password) ->
+        authdata = Base64.encode(email + ':' + password)
+        globals =
+          currentUser:
+            email: email
+            authdata: authdata
+        expireDate = new Date()
+        expireDate.setDate(expireDate.getDate() + 7)
+        $cookies.putObject('globals', globals, {
+          expires: expireDate
+        })
+        $rootScope.$emit('setCredentials')
+        return
+
+      clearCredentials: () ->
+        $rootScope.$emit('clearCredentials')
+        $cookies.remove('globals')
+        return
+
+    return service
+  ])
+
+  .factory('Base64', [ () ->
+    keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+    service =
+      encode: (input) ->
+        output = ''
+        chr1 = undefined
+        chr2 = undefined
+        chr3 = ''
+        enc1 = undefined
+        enc2 = undefined
+        enc3 = undefined
+        enc4 = ''
+        i = 0
+        loop
+          chr1 = input.charCodeAt(i++)
+          chr2 = input.charCodeAt(i++)
+          chr3 = input.charCodeAt(i++)
+          enc1 = chr1 >> 2
+          enc2 = (chr1 & 3) << 4 | chr2 >> 4
+          enc3 = (chr2 & 15) << 2 | chr3 >> 6
+          enc4 = chr3 & 63
+          if isNaN(chr2)
+            enc3 = enc4 = 64
+          else if isNaN(chr3)
+            enc4 = 64
+          output = output + keyStr.charAt(enc1) + keyStr.charAt(enc2) + keyStr.charAt(enc3) + keyStr.charAt(enc4)
+          chr1 = chr2 = chr3 = ''
+          enc1 = enc2 = enc3 = enc4 = ''
+          unless i < input.length
+            break
+        return output
+
+      decode: (input) ->
+        output = ''
+        chr1 = undefined
+        chr2 = undefined
+        chr3 = ''
+        enc1 = undefined
+        enc2 = undefined
+        enc3 = undefined
+        enc4 = ''
+        i = 0
+        # remove all characters that are not A-Z, a-z, 0-9, +, /, or =
+        base64test = /[^A-Za-z0-9\+\/\=]/g
+        if base64test.exec(input)
+          window.alert 'There were invalid base64 characters in the input text.\n' + 'Valid base64 characters are A-Z, a-z, 0-9, \'+\', \'/\',and \'=\'\n' + 'Expect errors in decoding.'
+        input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '')
+        loop
+          enc1 = keyStr.indexOf(input.charAt(i++))
+          enc2 = keyStr.indexOf(input.charAt(i++))
+          enc3 = keyStr.indexOf(input.charAt(i++))
+          enc4 = keyStr.indexOf(input.charAt(i++))
+          chr1 = enc1 << 2 | enc2 >> 4
+          chr2 = (enc2 & 15) << 4 | enc3 >> 2
+          chr3 = (enc3 & 3) << 6 | enc4
+          output = output + String.fromCharCode(chr1)
+          if enc3 != 64
+            output = output + String.fromCharCode(chr2)
+          if enc4 != 64
+            output = output + String.fromCharCode(chr3)
+          chr1 = chr2 = chr3 = ''
+          enc1 = enc2 = enc3 = enc4 = ''
+          unless i < input.length
+            break
+        return output
+
+    return service
+  ])
+
+  .controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'AuthService', ($scope, $rootScope, $state, AuthService) ->
+    AuthService.clearCredentials()
+
+    $scope.login = () ->
+      $scope.dataLoading = true
+      AuthService.login($scope.email, $scope.password).then( (response) ->
+        AuthService.setCredentials($scope.email, $scope.password)
+        $state.go('index')
+      , (error) ->
+        if error.status is 401
+          errorMsg =
+            title: 'Login Failed'
+            desc: 'Your username and/or password do not match.'
+        else if error.status is 400
+          errorMsg =
+            title: 'Login Failed'
+            desc: error.data.message
+        else
+          errorMsg =
+            title: 'Login Failed'
+            desc: 'Cause unknown.'
+        $scope.error = errorMsg
+        $scope.dataLoading = false
+      )
   ])
 
   .controller('ComponentDocCtrl', ['$scope', '$state', '$templateCache', 'component', ($scope, $state, $templateCache, component) ->
