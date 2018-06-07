@@ -95,7 +95,8 @@ module.exports =  (grunt) ->
     grunt.task.run(['builddist:src/angular'])
   )
 
-  grunt.registerTask('release', () ->
+  grunt.registerTask('release', (param) ->
+    console.log param
     grunt.task.run(['clean'])
     grunt.task.run(['builddist:src/html'])
     grunt.task.run(['builddist:src/angular'])
