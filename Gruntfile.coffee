@@ -99,5 +99,6 @@ module.exports =  (grunt) ->
     grunt.task.run(['clean'])
     grunt.task.run(['builddist:src/html'])
     grunt.task.run(['builddist:src/angular'])
+    grunt.task.run(['copy'])
     grunt.task.run(['bump'])
   )
