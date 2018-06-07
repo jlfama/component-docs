@@ -101,4 +101,5 @@ module.exports =  (grunt) ->
     grunt.task.run(['builddist:src/angular'])
     grunt.task.run(['copy'])
     grunt.task.run(['bump'])
+    grunt.task.run(['exec'])
   )
