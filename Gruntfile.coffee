@@ -14,9 +14,21 @@ module.exports =  (grunt) ->
       dist: [
         'dist'
       ]
+    copy:
+      docs:
+        files: [
+          {
+            src: ['environment.json']
+            dest: 'docs/angular/environment.json'
+          }
+          {
+            src: ['environment.json']
+            dest: 'docs/html/environment.json'
+          }
+        ]
     bump:
       options:
-        files: ['package.json', 'bower.json']
+        files: ['package.json', 'bower.json', 'environment.json', 'docs/angular/environment.json', 'docs/html/environment.json']
         updateConfigs: []
         commit: true
         commitMessage: 'Release v%VERSION%'
@@ -42,13 +54,16 @@ module.exports =  (grunt) ->
           keepalive: true
           open:
             target: 'http://localhost:3030'
+    exec:
+      deploy:
+        command: 'make deploy BUCKET=prod'
   })
 
   grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-bump')
   grunt.loadNpmTasks('grunt-contrib-connect')
-
-  grunt.registerTask('dist', ['clean'])
+  grunt.loadNpmTasks('grunt-exec')
 
   grunt.registerTask('builddist', (dir) ->
     done = this.async()

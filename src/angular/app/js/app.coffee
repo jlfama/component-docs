@@ -224,7 +224,7 @@ angular.module(
 
   ])
 
-  .run(['$rootScope', '$cookies', '$mdTheming', '$mdSidenav', '$state', 'StyleExamplesConstant', 'ExamplesConstant', ($rootScope, $cookies, $mdTheming, $mdSidenav, $state, StyleExamplesConstant, ExamplesConstant) ->
+  .run(['$rootScope', '$http', '$cookies', '$mdTheming', '$mdSidenav', '$state', 'StyleExamplesConstant', 'ExamplesConstant', ($rootScope, $http, $cookies, $mdTheming, $mdSidenav, $state, StyleExamplesConstant, ExamplesConstant) ->
     # Check for logged in user
     $rootScope.globals = $cookies.getObject('globals') || {}
     $rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState, fromParams, options) ->
@@ -245,6 +245,9 @@ angular.module(
     $rootScope.$state = $state
     $rootScope.examples = ExamplesConstant
     $rootScope.styleExamples = StyleExamplesConstant
+    $http.get('../environment.json').then( (response) ->
+      $rootScope.version = response.data.version
+    )
     $rootScope.toggleMenu = () ->
       $mdSidenav('left').toggle()
       return
@@ -264,6 +267,18 @@ angular.module(
           password: password
         $http.post('https://api.picatic.com/v1/auth/login', credentials).then( (response) ->
           deferred.resolve(response)
+        , (error) ->
+          deferred.reject(error)
+        )
+        return deferred.promise
+
+      getUser: (accessKey) ->
+        deferred = $q.defer()
+        params =
+          headers:
+            'x-picatic-access-key': accessKey
+        $http.get('https://api.picatic.com/v2/user/me', params).then( (response) ->
+          deferred.resolve(response.data.data.attributes)
         , (error) ->
           deferred.reject(error)
         )
@@ -366,8 +381,7 @@ angular.module(
     $scope.login = () ->
       $scope.dataLoading = true
       AuthService.login($scope.email, $scope.password).then( (response) ->
-        AuthService.setCredentials($scope.email, $scope.password)
-        $state.go('index')
+        return AuthService.getUser(response.data.access_key)
       , (error) ->
         if error.status is 401
           errorMsg =
@@ -383,7 +397,25 @@ angular.module(
             desc: 'Cause unknown.'
         $scope.error = errorMsg
         $scope.dataLoading = false
+        return
+      ).then( (user) ->
+        if user.is_admin
+          AuthService.setCredentials($scope.email, $scope.password)
+          $state.go('index')
+        else
+          $scope.error =
+            title: 'Access Denied'
+            desc: 'You do not have the correct permissions to view this page.'
+          $scope.dataLoading = false
+          return
+      , (error) ->
+        $scope.error =
+          title: 'Access Denied'
+          desc: 'You do not have the correct permissions to view this page.'
+        $scope.dataLoading = false
+        return
       )
+      return
   ])
 
   .controller('ComponentDocCtrl', ['$scope', '$state', '$templateCache', 'component', ($scope, $state, $templateCache, component) ->
