@@ -95,12 +95,11 @@ module.exports =  (grunt) ->
     grunt.task.run(['builddist:src/angular'])
   )
 
-  grunt.registerTask('release', (param) ->
-    console.log param
+  grunt.registerTask('release', (param='patch') ->
     grunt.task.run(['clean'])
     grunt.task.run(['builddist:src/html'])
     grunt.task.run(['builddist:src/angular'])
     grunt.task.run(['copy'])
-    grunt.task.run(['bump'])
+    grunt.task.run(["bump:#{param}"])
     # grunt.task.run(['exec'])
   )
