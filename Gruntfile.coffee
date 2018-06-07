@@ -49,11 +49,11 @@ module.exports =  (grunt) ->
             target: 'http://localhost:3030'
       html:
         options:
-          port: 3030
+          port: 3031
           base: 'docs/html/'
           keepalive: true
           open:
-            target: 'http://localhost:3030'
+            target: 'http://localhost:3031'
     exec:
       deploy:
         command: 'make deploy BUCKET=prod'

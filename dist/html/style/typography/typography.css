@@ -1,0 +1,133 @@
+.pt-display-5 {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Futura PT Multilingual W01', 'Futura', sans-serif;
+  font-size: 104px;
+  font-weight: 700;
+  letter-spacing: -4px;
+  line-height: 1;
+}
+.pt-display-5.pt-inverse {
+  color: #fff;
+}
+.pt-display-4 {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Futura PT Multilingual W01', 'Futura', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.pt-display-4.pt-inverse {
+  color: #fff;
+}
+.pt-display-3 {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Futura PT Multilingual W01', 'Futura', sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+.pt-display-3.pt-inverse {
+  color: #fff;
+}
+.pt-display-2 {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Avenir Next W01', 'Nunito Sans', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 48px;
+}
+.pt-display-2.pt-inverse {
+  color: #fff;
+}
+.pt-display-1 {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Avenir Next W01', 'Nunito Sans', sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
+}
+.pt-display-1.pt-inverse {
+  color: #fff;
+}
+.pt-headline {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Avenir Next W01', 'Nunito Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+}
+.pt-headline.pt-inverse {
+  color: #fff;
+}
+.pt-title {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Avenir Next W01', 'Nunito Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.pt-title.pt-inverse {
+  color: #fff;
+}
+.pt-subhead {
+  color: rgba(0, 0, 0, 0.54);
+  font-family: 'Avenir Next W01', 'Nunito Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.pt-subhead.pt-inverse {
+  color: rgba(255, 255, 255, 0.7);
+}
+.pt-body-3 {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Avenir Next W01', 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.pt-body-3.pt-inverse {
+  color: #fff;
+}
+.pt-body-2 {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Avenir Next W01', 'Nunito Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.pt-body-2.pt-inverse {
+  color: #fff;
+}
+.pt-body-1 {
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Avenir Next W01', 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.pt-body-1.pt-inverse {
+  color: #fff;
+}
+.pt-caption-2 {
+  color: rgba(0, 0, 0, 0.54);
+  font-family: 'Avenir Next W01', 'Nunito Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.pt-caption-2.pt-inverse {
+  color: rgba(255, 255, 255, 0.7);
+}
+.pt-caption-1 {
+  color: rgba(0, 0, 0, 0.54);
+  font-family: 'Avenir Next W01', 'Nunito Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.pt-caption-1.pt-inverse {
+  color: rgba(255, 255, 255, 0.7);
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" id="ng-app" ng-app="Picatic.Components">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Picatic Components HTML</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.css">
+  <link rel="stylesheet" type="text/css" href="css/highlightjs.css">
+  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link rel="stylesheet" type="text/css" href="css/components.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body class="examples-body" layout="row">
+  <md-sidenav
+    class="md-sidenav-left site-sidenav"
+    md-component-id="left"
+    md-is-locked-open="$mdMedia('gt-sm')"
+    md-whiteframe="4">
+
+    <md-toolbar ng-cloak>
+      <div class="md-toolbar-tools">
+        <svg class="picatic-logomark" xmlns="http://www.w3.org/2000/svg" width="108px" height="91px" viewBox="0 0 108 91" version="1.1" ng-click="$state.go('index')">
+          <title>Picatic Logo</title>
+          <desc>Picatic Logomark</desc>
+          <path fill="#FFFFFF" d="M76.5,0.97 L108.06,0.97 L84.075,61.032 L52.515,61.032 L76.5,0.97 M36,0.97 L67.56,0.97 L31.56,90.97 L0,90.97 L36,0.97"></path>
+        </svg>
+        <h1 class="docs-logotype" flex ng-click="$state.go('index')">Components</h1>
+        <md-button class="md-icon-button" aria-label="Toggle Menu" ng-cloak hide-gt-sm ng-click="toggleMenu()">
+          <md-icon>close</md-icon>
+        </md-button>
+      </div><!-- /.md-toolbar-tools -->
+    </md-toolbar>
+    <md-content ng-cloak flex>
+      <ul class="docs-menu">
+        <li>
+          <button ng-click="$state.go('index')" ng-class="{'active': isSelected('index')}" ng-bind-template="Latest Release {{version}}"></button>
+        </li>
+        <li>
+          <button type="button" ng-click="showStyle = !showStyle">
+            <div>Style <span class="docs-flex-spacer"></span><span ng-class="{'toggled': showStyle}"><i class="material-icons">keyboard_arrow_down</i></span></div>
+          </button>
+          <ul ng-show="showStyle" class="animate-show" ng-click="closeMenu()">
+            <li ng-repeat="styleExample in styleExamples">
+              <a href="" ui-sref="{{styleExample.state}}" ng-class="{'active': isSelected(styleExample.state)}" ng-bind="styleExample.name"></a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <button type="button" ng-click="showExamples = !showExamples">
+            <div>Demo <span class="docs-flex-spacer"></span><span ng-class="{'toggled': showExamples}"><i class="material-icons">keyboard_arrow_down</i></span></div>
+          </button>
+          <ul ng-show="showExamples" class="animate-show" ng-click="closeMenu()">
+            <li ng-repeat="example in examples">
+              <a href="" ui-sref="{{example.state}}" ng-class="{'active': isSelected(example.state)}" ng-bind="example.name"></a>
+            </li>
+          </ul>
+        </li>
+      </ul><!-- /.docs-menu -->
+    </md-content>
+    <footer>
+      <ul class="docs-menu">
+        <li>
+          <button ng-click="$state.go('login')">Logout</button>
+        </li>
+      </ul>
+    </footer>
+  </md-sidenav>
+  <div class="site-main" layout="column">
+    <md-toolbar class="site-content-toolbar">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Toggle Menu" ng-cloak hide-gt-sm ng-click="toggleMenu()">
+          <md-icon>menu</md-icon>
+        </md-button>
+        <div flex md-truncate state-breadcrumbs></div>
+      </div>
+    </md-toolbar><!-- /.site-content-toolbar -->
+    <div class="site-content" layout="column" flex="noshrink">
+      <div ui-view></div>
+    </div><!-- /.site-content -->
+    <div id="license-footer" layout="row" layout-align="center center">
+      <div flex>
+        <span>Powered by</span>
+        <svg width="82px" height="16px" viewBox="0 0 82 16" xmlns="http://www.w3.org/2000/svg">
+          <title>Picatic</title>
+          <g id="logo" stroke="none" stroke-width="1" fill-rule="evenodd" fill="#000000" opacity=".26">
+            <path d="M27.7106078,7.60198461 L28.3353052,7.60198461 C29.6795146,7.60198461 31.0045391,7.60198461 31.0045391,5.87070073 C31.0045391,4.08315722 29.774012,4.06440401 28.3353052,4.06440401 L27.7106078,4.06440401 L27.7106078,7.60198461 L27.7106078,7.60198461 L27.7106078,7.60198461 Z M24,1.09146843 L29.6795146,1.09146843 C32.74624,1.09146843 34.8664061,2.50268699 34.8664061,5.75786628 C34.8664061,9.10712682 33.0492341,10.5749202 29.8120646,10.5749202 L27.7106078,10.5749202 L27.7106078,15.2788245 L24,15.2788245 L24,1.09146843 L24,1.09146843 L24,1.09146843 Z M36.0591977,5.62612103 L39.5045469,5.62612103 L39.5045469,15.2788245 L36.0591977,15.2788245 L36.0591977,5.62612103 L36.0591977,5.62612103 Z M39.7128851,1.91928876 C39.7128851,2.97309317 38.8421139,3.83857752 37.7818723,3.83857752 C36.7217893,3.83857752 35.8508595,2.97309317 35.8508595,1.91928876 C35.8508595,0.865641938 36.7217893,0 37.7818723,0 C38.8421139,0 39.7128851,0.865641938 39.7128851,1.91928876 L39.7128851,1.91928876 L39.7128851,1.91928876 Z M48.4020461,8.76846588 C47.8908724,8.39214093 47.2852013,8.09114401 46.6224512,8.09114401 C45.2974266,8.09114401 44.2560528,9.10712682 44.2560528,10.4431749 C44.2560528,11.8354827 45.259374,12.8139591 46.679213,12.8139591 C47.2852013,12.8139591 47.9476342,12.5693794 48.4020461,12.1553904 L48.4020461,15.0531556 C47.6447987,15.4294805 46.811763,15.5988898 45.9787274,15.5988898 C43.1013138,15.5988898 40.6970214,13.4725278 40.6970214,10.5560094 C40.6970214,7.45148615 43.0824461,5.30621331 46.1301452,5.30621331 C46.9254453,5.30621331 47.7205868,5.49453337 48.4020461,5.87070073 L48.4020461,8.76846588 L48.4020461,8.76846588 Z M53.0208435,10.4619282 C53.0208435,11.6849842 53.8348528,12.6257966 55.2358241,12.6257966 C56.6367953,12.6257966 57.4508046,11.6849842 57.4508046,10.4619282 C57.4508046,9.27653608 56.6367953,8.27914889 55.2358241,8.27914889 C53.8348528,8.27914889 53.0208435,9.27653608 53.0208435,10.4619282 L53.0208435,10.4619282 L53.0208435,10.4619282 Z M60.7827886,15.2788245 L57.3372809,15.2788245 L57.3372809,14.2064244 L57.2993868,14.2064244 C56.6937157,15.16599 55.5009241,15.5988898 54.3650529,15.5988898 C51.4876393,15.5988898 49.4618121,13.2091948 49.4618121,10.4431749 C49.4618121,7.67715505 51.4495867,5.30621331 54.3271588,5.30621331 C55.4441622,5.30621331 56.6179275,5.72020227 57.3372809,6.56693341 L57.3372809,5.62612103 L60.7827886,5.62612103 L60.7827886,15.2788245 L60.7827886,15.2788245 L60.7827886,15.2788245 Z M66.4619861,15.2788245 L63.0163199,15.2788245 L63.0163199,8.44871575 L61.8996335,8.44871575 L61.8996335,5.62612103 L63.0163199,5.62612103 L63.0163199,2.72851348 L66.4619861,2.72851348 L66.4619861,5.62612103 L68.4118667,5.62612103 L68.4118667,8.44871575 L66.4619861,8.44871575 L66.4619861,15.2788245 L66.4619861,15.2788245 Z M69.1310615,5.62612103 L72.5764107,5.62612103 L72.5764107,15.2788245 L69.1310615,15.2788245 L69.1310615,5.62612103 L69.1310615,5.62612103 Z M72.7847489,1.91928876 C72.7847489,2.97309317 71.9139777,3.83857752 70.8537361,3.83857752 C69.7936531,3.83857752 68.9227233,2.97309317 68.9227233,1.91928876 C68.9227233,0.865641938 69.7936531,0 70.8537361,0 C71.9139777,0 72.7847489,0.865641938 72.7847489,1.91928876 L72.7847489,1.91928876 L72.7847489,1.91928876 Z M81.4739099,8.76846588 C80.9627362,8.39214093 80.357065,8.09114401 79.694315,8.09114401 C78.3692904,8.09114401 77.3279166,9.10712682 77.3279166,10.4431749 C77.3279166,11.8354827 78.3312378,12.8139591 79.7510768,12.8139591 C80.357065,12.8139591 81.019498,12.5693794 81.4739099,12.1553904 L81.4739099,15.0531556 C80.7166625,15.4294805 79.8836268,15.5988898 79.0505912,15.5988898 C76.1731776,15.5988898 73.7688852,13.4725278 73.7688852,10.5560094 C73.7688852,7.45148615 76.1543099,5.30621331 79.202009,5.30621331 C79.9973091,5.30621331 80.7924506,5.49453337 81.4739099,5.87070073 L81.4739099,8.76846588 L81.4739099,8.76846588 Z" id="Shape"></path>
+            <path d="M12.3838962,0.758065936 L17.34355,0.758065936 L13.5744645,10.2550515 L8.61481079,10.2550515 L12.3838962,0.758065936 M6.01932151,0.758065936 L10.9789753,0.758065936 L5.32157555,14.9886022 L0.361921784,14.9886022 L6.01932151,0.758065936" id="Shape"></path>
+          </g>
+        </svg>
+      </div>
+      <span>&copy;2018</span>
+    </div><!-- /#license-footer -->
+  </div><!-- /.site-main -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-sanitize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-cookies.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.11/angular-messages.min.js"></script>
+  <script src="https://unpkg.com/angular-ui-router@0.4.2/release/angular-ui-router.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.4/angular-material.min.js"></script>
+
+  <script type="text/javascript" src="js/highlight.pack.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/templates.js"></script>
+  <script type="text/javascript" src="js/components.js"></script>
+  <script type="text/javascript" src="js/picatic-components.js"></script>
+</body>
+</html>
