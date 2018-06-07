@@ -47,6 +47,13 @@ module.exports =  (grunt) ->
           {
             expand: true
             cwd: 'app'
+            src: ['img/*']
+            dest: '../../docs/html/'
+            filter: 'isFile'
+          }
+          {
+            expand: true
+            cwd: 'app'
             src: ['fonts/*']
             dest: '../../docs/html/'
             filter: 'isFile'

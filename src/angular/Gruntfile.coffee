@@ -62,7 +62,6 @@ module.exports =  (grunt) ->
             dest: '../../docs/angular/'
             filter: 'isFile'
           }
-
           {
             expand: true
             cwd: 'app'

@@ -1,0 +1,50 @@
+<md-dialog>
+  <div class="onboarding" ng-class="login.state" md-theme="purpleHeart" layout="row" layout-xs="column" flex="100">
+    <div class="login-sidebar" flex="40" flex-xs="100" layout="column" layout-align="start">
+      <div class="login-sidebar-top" flex="70" flex-xs="100">
+        <img src="/img/picatic-horiz-wh.svg" alt="Picatic" class="login-picatic-logo">
+        <div class="login-fade-item" hide-xs>
+          <h2>Picatic Components</h2>
+          <p>Sign in to view the Picatic Component documentation.</p>
+        </div>
+      </div><!-- /.login-sidebar-top -->
+    </div><!-- /.login-sidebar -->
+    <div class="login-main" flex="60" flex-xs="100">
+      <div class="login-main-heading">
+        <h1>
+          <span>Sign in.</span>
+        </h1>
+        <p class="error-message" ng-show="error" ng-cloak>
+          <span ng-bind="error.title"></span><br>
+          <span ng-bind="error.desc"></span>
+        </p>
+      </div><!-- /.login-main-heading -->
+
+      <form name="logInForm" class="form-default" ng-submit="login()">
+        <md-input-container class="md-block md-accent login-container-email">
+          <label>Email Address</label>
+          <input type="email" name="email" id="login-email" ng-model="email" md-no-asterisk="true" minlength="6" maxlength="100" ng-pattern="/^.+@.+\..+$/" required ng-disabled="dataLoading">
+          <div ng-messages="logInForm.email.$error">
+            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+              Your email must be between 6 and 100 characters long and look like an e-mail address.
+            </div>
+          </div>
+        </md-input-container>
+
+        <md-input-container check-autofill-input class="md-block md-accent login-container-password">
+          <label>Password</label>
+          <input type="password" name="password" id="login-password" ng-model="password" md-no-asterisk="true" required ng-disabled="dataLoading">
+          <div ng-messages="logInForm.password.$error" role="alert">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+
+        <div class="login-container-submit" layout="row" layout-align="center center" flex="100">
+          <md-button type="submit" id="login-button" class="md-primary md-raised" ng-disabled="dataLoading">
+            Sign In
+          </md-button>
+        </div>
+      </form>
+    </div><!-- /.login-main -->
+  </div>
+</md-dialog>

@@ -232,6 +232,9 @@ angular.module(
         event.preventDefault()
         $state.go('login')
     )
+    $rootScope.$on('$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) ->
+      $rootScope.pageClass = "#{toState.name}-page"
+    )
     $rootScope.$on('clearCredentials', () ->
       $rootScope.globals = {}
     )
@@ -375,13 +378,26 @@ angular.module(
     return service
   ])
 
-  .controller('LoginCtrl', ['$scope', '$rootScope', '$state', 'AuthService', ($scope, $rootScope, $state, AuthService) ->
+  .controller('LoginDialogCtrl', ['$scope', '$rootScope', '$state', '$mdDialog', '$q', 'AuthService', ($scope, $rootScope, $state, $mdDialog, $q, AuthService) ->
     AuthService.clearCredentials()
 
     $scope.login = () ->
       $scope.dataLoading = true
       AuthService.login($scope.email, $scope.password).then( (response) ->
         return AuthService.getUser(response.data.access_key)
+      , (error) ->
+        return $q.reject(error)
+      ).then( (user) ->
+        if user.is_admin
+          AuthService.setCredentials($scope.email, $scope.password)
+          $mdDialog.cancel()
+          $state.go('index')
+        else
+          $scope.error =
+            title: 'Access Denied'
+            desc: 'You do not have the correct permissions to view this page.'
+          $scope.dataLoading = false
+          return
       , (error) ->
         if error.status is 401
           errorMsg =
@@ -398,24 +414,24 @@ angular.module(
         $scope.error = errorMsg
         $scope.dataLoading = false
         return
-      ).then( (user) ->
-        if user.is_admin
-          AuthService.setCredentials($scope.email, $scope.password)
-          $state.go('index')
-        else
-          $scope.error =
-            title: 'Access Denied'
-            desc: 'You do not have the correct permissions to view this page.'
-          $scope.dataLoading = false
-          return
-      , (error) ->
-        $scope.error =
-          title: 'Access Denied'
-          desc: 'You do not have the correct permissions to view this page.'
-        $scope.dataLoading = false
-        return
       )
       return
+  ])
+
+  .controller('LoginCtrl', ['$scope', '$mdDialog', ($scope, $mdDialog) ->
+
+    showLogin = () ->
+      $mdDialog.show({
+        controller: 'LoginDialogCtrl'
+        templateUrl: 'app/views/login-dialog.html'
+        parent: angular.element(document.body)
+        clickOutsideToClose: false
+        escapeToClose: false
+        fullscreen: false
+        panelClass: 'test'
+      })
+      return
+    showLogin()
   ])
 
   .controller('ComponentDocCtrl', ['$scope', '$state', '$templateCache', 'component', ($scope, $state, $templateCache, component) ->

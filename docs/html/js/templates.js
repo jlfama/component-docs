@@ -291,6 +291,65 @@ angular.module('Picatic.Components').run(['$templateCache', function($templateCa
   );
 
 
+  $templateCache.put('app/views/login-dialog.html',
+    "<md-dialog>\n" +
+    "  <div class=\"onboarding\" ng-class=\"login.state\" md-theme=\"purpleHeart\" layout=\"row\" layout-xs=\"column\" flex=\"100\">\n" +
+    "    <div class=\"login-sidebar\" flex=\"40\" flex-xs=\"100\" layout=\"column\" layout-align=\"start\">\n" +
+    "      <div class=\"login-sidebar-top\" flex=\"70\" flex-xs=\"100\">\n" +
+    "        <img src=\"/img/picatic-horiz-wh.svg\" alt=\"Picatic\" class=\"login-picatic-logo\">\n" +
+    "        <div class=\"login-fade-item\" hide-xs>\n" +
+    "          <h2>Picatic Components</h2>\n" +
+    "          <p>Sign in to view the Picatic Component documentation.</p>\n" +
+    "        </div>\n" +
+    "      </div><!-- /.login-sidebar-top -->\n" +
+    "    </div><!-- /.login-sidebar -->\n" +
+    "    <div class=\"login-main\" flex=\"60\" flex-xs=\"100\">\n" +
+    "      <div class=\"login-main-heading\">\n" +
+    "        <h1>\n" +
+    "          <span>Sign in.</span>\n" +
+    "        </h1>\n" +
+    "        <p class=\"error-message\" ng-show=\"error\" ng-cloak>\n" +
+    "          <span ng-bind=\"error.title\"></span><br>\n" +
+    "          <span ng-bind=\"error.desc\"></span>\n" +
+    "        </p>\n" +
+    "      </div><!-- /.login-main-heading -->\n" +
+    "\n" +
+    "      <form name=\"logInForm\" class=\"form-default\" ng-submit=\"login()\">\n" +
+    "        <md-input-container class=\"md-block md-accent login-container-email\">\n" +
+    "          <label>Email Address</label>\n" +
+    "          <input type=\"email\" name=\"email\" id=\"login-email\" ng-model=\"email\" md-no-asterisk=\"true\" minlength=\"6\" maxlength=\"100\" ng-pattern=\"/^.+@.+\\..+$/\" required ng-disabled=\"dataLoading\">\n" +
+    "          <div ng-messages=\"logInForm.email.$error\">\n" +
+    "            <div ng-message-exp=\"['required', 'minlength', 'maxlength', 'pattern']\">\n" +
+    "              Your email must be between 6 and 100 characters long and look like an e-mail address.\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </md-input-container>\n" +
+    "\n" +
+    "        <md-input-container check-autofill-input class=\"md-block md-accent login-container-password\">\n" +
+    "          <label>Password</label>\n" +
+    "          <input type=\"password\" name=\"password\" id=\"login-password\" ng-model=\"password\" md-no-asterisk=\"true\" required ng-disabled=\"dataLoading\">\n" +
+    "          <div ng-messages=\"logInForm.password.$error\" role=\"alert\">\n" +
+    "            <div ng-message=\"required\">This is required.</div>\n" +
+    "          </div>\n" +
+    "        </md-input-container>\n" +
+    "\n" +
+    "        <div class=\"login-container-submit\" layout=\"row\" layout-align=\"center center\" flex=\"100\">\n" +
+    "          <md-button type=\"submit\" id=\"login-button\" class=\"md-primary md-raised\" ng-disabled=\"dataLoading\">\n" +
+    "            Sign In\n" +
+    "          </md-button>\n" +
+    "        </div>\n" +
+    "      </form>\n" +
+    "    </div><!-- /.login-main -->\n" +
+    "  </div>\n" +
+    "</md-dialog>\n"
+  );
+
+
+  $templateCache.put('app/views/login.html',
+    "<div ng-controller=\"LoginCtrl\"></div>\n"
+  );
+
+
   $templateCache.put('app/views/menu.html',
     ""
   );
@@ -1703,26 +1762,10 @@ angular.module('Picatic.Components').run(['$templateCache', function($templateCa
     "  @border-radius-sm:      2px;\n" +
     "\n" +
     "//== Media queries breakpoints\n" +
-    "  // Extra small screen / phone\n" +
-    "  @screen-xs:             480px;\n" +
-    "  @screen-phone:          @screen-xs;\n" +
-    "\n" +
-    "  // Small screen / tablet\n" +
-    "  @screen-sm:             768px;\n" +
-    "  @screen-tablet:         @screen-sm;\n" +
-    "\n" +
-    "  // Medium screen / desktop\n" +
-    "  @screen-md:             992px;\n" +
-    "  @screen-desktop:        @screen-md;\n" +
-    "\n" +
-    "  // Large screen / wide desktop\n" +
-    "  @screen-lg:             1200px;\n" +
-    "  @screen-lg-desktop:     @screen-lg;\n" +
-    "\n" +
-    "  // So media queries don't overlap when required, provide a maximum\n" +
-    "  @screen-xs-max:              (@screen-sm - 1);\n" +
-    "  @screen-sm-max:              (@screen-md - 1);\n" +
-    "  @screen-md-max:              (@screen-lg - 1);\n" +
+    "  @xs:                    ~'(max-width: 599px)';\n" +
+    "  @gt-xs:                 ~'(min-width: 600px)';\n" +
+    "  @lt-md:                 ~'(max-width: 959px)';\n" +
+    "  @gt-sm:                 ~'(min-width: 960px)';\n" +
     "\n" +
     "\n" +
     "//== Bezier Curves\n" +

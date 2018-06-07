@@ -332,31 +332,62 @@ angular.module('Picatic.Components').run(['$templateCache', function($templateCa
   );
 
 
-  $templateCache.put('app/views/login.html',
-    "<div ng-controller=\"LoginCtrl\">\n" +
-    "  <div ng-show=\"error\" class=\"alert alert-danger\">\n" +
-    "    <h4 ng-bind=\"error.title\"><h4>\n" +
-    "    <p ng-bind=\"error.desc\"><p>\n" +
+  $templateCache.put('app/views/login-dialog.html',
+    "<md-dialog>\n" +
+    "  <div class=\"onboarding\" ng-class=\"login.state\" md-theme=\"purpleHeart\" layout=\"row\" layout-xs=\"column\" flex=\"100\">\n" +
+    "    <div class=\"login-sidebar\" flex=\"40\" flex-xs=\"100\" layout=\"column\" layout-align=\"start\">\n" +
+    "      <div class=\"login-sidebar-top\" flex=\"70\" flex-xs=\"100\">\n" +
+    "        <img src=\"/img/picatic-horiz-wh.svg\" alt=\"Picatic\" class=\"login-picatic-logo\">\n" +
+    "        <div class=\"login-fade-item\" hide-xs>\n" +
+    "          <h2>Picatic Components</h2>\n" +
+    "          <p>Sign in to view the Picatic Component documentation.</p>\n" +
+    "        </div>\n" +
+    "      </div><!-- /.login-sidebar-top -->\n" +
+    "    </div><!-- /.login-sidebar -->\n" +
+    "    <div class=\"login-main\" flex=\"60\" flex-xs=\"100\">\n" +
+    "      <div class=\"login-main-heading\">\n" +
+    "        <h1>\n" +
+    "          <span>Sign in.</span>\n" +
+    "        </h1>\n" +
+    "        <p class=\"error-message\" ng-show=\"error\" ng-cloak>\n" +
+    "          <span ng-bind=\"error.title\"></span><br>\n" +
+    "          <span ng-bind=\"error.desc\"></span>\n" +
+    "        </p>\n" +
+    "      </div><!-- /.login-main-heading -->\n" +
+    "\n" +
+    "      <form name=\"logInForm\" class=\"form-default\" ng-submit=\"login()\">\n" +
+    "        <md-input-container class=\"md-block md-accent login-container-email\">\n" +
+    "          <label>Email Address</label>\n" +
+    "          <input type=\"email\" name=\"email\" id=\"login-email\" ng-model=\"email\" md-no-asterisk=\"true\" minlength=\"6\" maxlength=\"100\" ng-pattern=\"/^.+@.+\\..+$/\" required ng-disabled=\"dataLoading\">\n" +
+    "          <div ng-messages=\"logInForm.email.$error\">\n" +
+    "            <div ng-message-exp=\"['required', 'minlength', 'maxlength', 'pattern']\">\n" +
+    "              Your email must be between 6 and 100 characters long and look like an e-mail address.\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </md-input-container>\n" +
+    "\n" +
+    "        <md-input-container check-autofill-input class=\"md-block md-accent login-container-password\">\n" +
+    "          <label>Password</label>\n" +
+    "          <input type=\"password\" name=\"password\" id=\"login-password\" ng-model=\"password\" md-no-asterisk=\"true\" required ng-disabled=\"dataLoading\">\n" +
+    "          <div ng-messages=\"logInForm.password.$error\" role=\"alert\">\n" +
+    "            <div ng-message=\"required\">This is required.</div>\n" +
+    "          </div>\n" +
+    "        </md-input-container>\n" +
+    "\n" +
+    "        <div class=\"login-container-submit\" layout=\"row\" layout-align=\"center center\" flex=\"100\">\n" +
+    "          <md-button type=\"submit\" id=\"login-button\" class=\"md-primary md-raised\" ng-disabled=\"dataLoading\">\n" +
+    "            Sign In\n" +
+    "          </md-button>\n" +
+    "        </div>\n" +
+    "      </form>\n" +
+    "    </div><!-- /.login-main -->\n" +
     "  </div>\n" +
-    "  <form name=\"form\" ng-submit=\"login()\" role=\"form\">\n" +
-    "    <div class=\"form-group\">\n" +
-    "      <label for=\"email\">Email</label>\n" +
-    "      <i class=\"fa fa-key\"></i>\n" +
-    "      <input type=\"email\" name=\"email\" id=\"email\" class=\"form-control\" ng-model=\"email\" required />\n" +
-    "      <span ng-show=\"form.email.$dirty && form.email.$error.required\" class=\"help-block\">Username is required</span>\n" +
-    "    </div>\n" +
-    "    <div class=\"form-group\">\n" +
-    "      <label for=\"password\">Password</label>\n" +
-    "      <i class=\"fa fa-lock\"></i>\n" +
-    "      <input type=\"password\" name=\"password\" id=\"password\" class=\"form-control\" ng-model=\"password\" required />\n" +
-    "      <span ng-show=\"form.password.$dirty && form.password.$error.required\" class=\"help-block\">Password is required</span>\n" +
-    "    </div>\n" +
-    "    <div class=\"form-actions\">\n" +
-    "      <button type=\"submit\" ng-disabled=\"form.$invalid || dataLoading\" class=\"btn btn-danger\">Login</button>\n" +
-    "      <img ng-if=\"dataLoading\" src=\"data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==\"/>\n" +
-    "    </div>\n" +
-    "  </form>\n" +
-    "</div>\n"
+    "</md-dialog>\n"
+  );
+
+
+  $templateCache.put('app/views/login.html',
+    "<div ng-controller=\"LoginCtrl\"></div>\n"
   );
 
 
@@ -2884,9 +2915,10 @@ angular.module('Picatic.Components').run(['$templateCache', function($templateCa
     "  @border-radius-sm:      2px;\n" +
     "\n" +
     "//== Media queries breakpoints\n" +
-    "  @gt-xs:                   ~'(min-width: 600px)';\n" +
-    "  @lt-md:                  ~'(max-width: 959px)';\n" +
-    "  @gt-sm:                  ~'(min-width: 960px)';\n" +
+    "  @xs:                    ~'(max-width: 599px)';\n" +
+    "  @gt-xs:                 ~'(min-width: 600px)';\n" +
+    "  @lt-md:                 ~'(max-width: 959px)';\n" +
+    "  @gt-sm:                 ~'(min-width: 960px)';\n" +
     "\n" +
     "\n" +
     "//== Bezier Curves\n" +
