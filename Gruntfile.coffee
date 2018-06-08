@@ -118,6 +118,7 @@ module.exports =  (grunt) ->
     grunt.task.run(['dist'])
     grunt.task.run(['copy'])
     grunt.task.run(["bump:#{param}"])
+    grunt.task.run(['gren'])
     grunt.task.run(['slack'])
     # grunt.task.run(['exec'])
   )
