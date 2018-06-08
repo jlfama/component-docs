@@ -6,6 +6,7 @@ module.exports =  (grunt) ->
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json')
+    grenCfg: grunt.file.readJSON('gren.json')
 
     clean:
       docs: [
@@ -29,7 +30,7 @@ module.exports =  (grunt) ->
     bump:
       options:
         files: ['package.json', 'bower.json', 'environment.json', 'docs/angular/environment.json', 'docs/html/environment.json']
-        updateConfigs: []
+        updateConfigs: ['pkg']
         commit: true
         commitMessage: 'Release v%VERSION%'
         commitFiles: ['-a'] # 'package.json', 'bower.json' for tag release files only
@@ -54,6 +55,22 @@ module.exports =  (grunt) ->
           keepalive: true
           open:
             target: 'http://localhost:3031'
+    gren:
+      release:
+        options:
+          token: "<%= grenCfg.token %>"
+          dataSource: 'commits'
+      changelog:
+        options:
+          token: "<%= grenCfg.token %>"
+          changelogFilename: 'CHANGELOG.md'
+          dataSource: 'commits'
+    slack:
+      options:
+        webhook: 'https://hooks.slack.com/services/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'
+        channel: '#deployments'
+      your_target:
+        text: 'Deployed <<%= pkg.releases.url %>/tag/v<%= pkg.version %>|Picatic Components v<%= pkg.version %>> to production.'
     exec:
       deploy:
         command: 'make deploy BUCKET=prod'
@@ -63,6 +80,8 @@ module.exports =  (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-bump')
   grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-github-release-notes')
+  grunt.loadNpmTasks('grunt-slack-webhook')
   grunt.loadNpmTasks('grunt-exec')
 
   grunt.registerTask('builddist', (dir) ->
@@ -96,10 +115,9 @@ module.exports =  (grunt) ->
   )
 
   grunt.registerTask('release', (param='patch') ->
-    grunt.task.run(['clean'])
-    grunt.task.run(['builddist:src/html'])
-    grunt.task.run(['builddist:src/angular'])
+    grunt.task.run(['dist'])
     grunt.task.run(['copy'])
     grunt.task.run(["bump:#{param}"])
+    grunt.task.run(['slack'])
     # grunt.task.run(['exec'])
   )

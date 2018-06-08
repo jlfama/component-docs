@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git://github.com/jlfama/picatic-components.git"
   },
+  "releases": {
+    "url": "https://github.com/jlfama/component-docs/releases"
+  },
   "author": "Picatic",
   "license": "None",
   "readmeFilename": "README.md",
@@ -17,6 +20,8 @@
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-exec": "^3.0.0"
+    "grunt-exec": "^3.0.0",
+    "grunt-github-release-notes": "^0.7.0",
+    "grunt-slack-webhook": "0.0.5"
   }
 }
