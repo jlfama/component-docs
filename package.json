@@ -1,6 +1,6 @@
 {
   "name": "picatic-components",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "Picatic components for HTML/AngularJS/React",
   "homepage": "https://github.com/jlfama/component-docs",
   "main": "dist",
