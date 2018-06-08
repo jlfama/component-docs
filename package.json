@@ -1,6 +1,6 @@
 {
   "name": "picatic-components",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "Picatic components for HTML/AngularJS/React",
   "main": "dist",
   "repository": {
