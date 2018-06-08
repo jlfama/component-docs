@@ -356,6 +356,16 @@ code {
   md-icon {
     color: #202020 !important;
   }
+  .md-toolbar-links {
+    .md-icon-button {
+      opacity: .54;
+      transition: opacity .3s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
 }
 .site-content {
   background-color: @grey-lightest;

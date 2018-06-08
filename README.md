@@ -1,14 +1,18 @@
-# component-docs
+# Picatic Component Docs
+To view the documentation, log in with your Picatic admin account.
 
 ## Running the working project
-* Run `grunt connect:ng` or `grunt connect:html` from the root directory to start a server to view the documentation
+* Run `grunt connect:ng` or `grunt connect:html` from the root directory to start a server to view the documentation and open the documentation in your default browser
 * Switch to the working directory you plan to work in (`cd src/angular/` | `cd src/html/`)
 * Run `grunt watch` to see changes in docs as you work
 
 ### Notes
 Main documentation src files are in `src/*/app/`.
+
 Each component build out is in `src/*/components/`. Each of the LESS files are compiled for release and also shown in documentation.
+
 Javascript for any custom components is in `src/angular/js/components`. These files are compiled into the release javascript.
+
 
 ## For release
 In order to publish releases, you will need a `github token` (that can be easily generated following [this link](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)). _You only need "repo" scope._

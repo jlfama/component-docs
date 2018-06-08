@@ -75,6 +75,12 @@
           <md-icon>menu</md-icon>
         </md-button>
         <div flex md-truncate state-breadcrumbs></div>
+        <div class="md-toolbar-links" ng-if="currentState.name === 'index'">
+          <md-button class="md-icon-button" aria-label="View Source on Github" ng-href="https://github.com/jlfama/component-docs" href="" target="_blank">
+            <md-tooltip md-direction="botton">View Source on Github</md-tooltip>
+            <md-icon md-svg-icon="img/icons/github.svg"></md-icon>
+          </md-button>
+        </div><!-- /.md-toolbar-links -->
       </div>
     </md-toolbar><!-- /.site-content-toolbar -->
     <div class="site-content" layout="column" flex="noshrink">

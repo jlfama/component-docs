@@ -178,6 +178,7 @@ angular.module(
     )
     $rootScope.$on('$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) ->
       $rootScope.pageClass = "#{toState.name}-page"
+      $rootScope.currentState = toState
     )
     $rootScope.$on('clearCredentials', () ->
       $rootScope.globals = {}
